@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Hoofdstuk 2 Beginselen ML-Agents | VR Experience (ML-agents)</title>
+  <meta name="description" content="AI-augemnted virtual realitity course at the AP University College." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Hoofdstuk 2 Beginselen ML-Agents | VR Experience (ML-agents)" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="AI-augemnted virtual realitity course at the AP University College." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Hoofdstuk 2 Beginselen ML-Agents | VR Experience (ML-agents)" />
+  
+  <meta name="twitter:description" content="AI-augemnted virtual realitity course at the AP University College." />
+  
+
+<meta name="author" content="34145/1928/2021/1/56 David D’Haese" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="inleiding-tot-het-onderdeel-ml-agents.html"/>
+<link rel="next" href="ontwikkeling-van-een-brein.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="css\course.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>ML-Agents</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#language"><i class="fa fa-check"></i>Language</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="inleiding-tot-het-onderdeel-ml-agents.html"><a href="inleiding-tot-het-onderdeel-ml-agents.html"><i class="fa fa-check"></i><b>1</b> Inleiding tot het onderdeel ML-Agents</a><ul>
+<li class="chapter" data-level="1.1" data-path="inleiding-tot-het-onderdeel-ml-agents.html"><a href="inleiding-tot-het-onderdeel-ml-agents.html#in-een-notedop"><i class="fa fa-check"></i><b>1.1</b> In een notedop</a></li>
+<li class="chapter" data-level="1.2" data-path="inleiding-tot-het-onderdeel-ml-agents.html"><a href="inleiding-tot-het-onderdeel-ml-agents.html#leerdoelen"><i class="fa fa-check"></i><b>1.2</b> Leerdoelen</a></li>
+<li class="chapter" data-level="1.3" data-path="inleiding-tot-het-onderdeel-ml-agents.html"><a href="inleiding-tot-het-onderdeel-ml-agents.html#cursus-vorm"><i class="fa fa-check"></i><b>1.3</b> Cursus vorm</a></li>
+<li class="chapter" data-level="1.4" data-path="inleiding-tot-het-onderdeel-ml-agents.html"><a href="inleiding-tot-het-onderdeel-ml-agents.html#licentie-voor-deze-cursus"><i class="fa fa-check"></i><b>1.4</b> Licentie voor deze cursus</a></li>
+<li class="chapter" data-level="1.5" data-path="inleiding-tot-het-onderdeel-ml-agents.html"><a href="inleiding-tot-het-onderdeel-ml-agents.html#verwijzen-naar-deze-cursus"><i class="fa fa-check"></i><b>1.5</b> Verwijzen naar deze cursus</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html"><i class="fa fa-check"></i><b>2</b> Beginselen ML-Agents</a><ul>
+<li class="chapter" data-level="2.1" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#vereiste-voorkennis-en-voorinstallatie"><i class="fa fa-check"></i><b>2.1</b> Vereiste voorkennis en voorinstallatie</a></li>
+<li class="chapter" data-level="2.2" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#installatie"><i class="fa fa-check"></i><b>2.2</b> Installatie</a></li>
+<li class="chapter" data-level="2.3" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#ml-agents-toolkit"><i class="fa fa-check"></i><b>2.3</b> ML-Agents Toolkit</a></li>
+<li class="chapter" data-level="2.4" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#machine-learning-in-een-notedop"><i class="fa fa-check"></i><b>2.4</b> Machine learning in een notedop</a></li>
+<li class="chapter" data-level="2.5" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#obelix-de-menhirhouwer"><i class="fa fa-check"></i><b>2.5</b> Obelix de menhirhouwer</a></li>
+<li class="chapter" data-level="2.6" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#het-spelverloop"><i class="fa fa-check"></i><b>2.6</b> Het spelverloop</a></li>
+<li class="chapter" data-level="2.7" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#observaties-acties-en-beloning"><i class="fa fa-check"></i><b>2.7</b> Observaties, acties en beloning</a></li>
+<li class="chapter" data-level="2.8" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#het-speelveld"><i class="fa fa-check"></i><b>2.8</b> Het speelveld</a></li>
+<li class="chapter" data-level="2.9" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#spelobjecten"><i class="fa fa-check"></i><b>2.9</b> Spelobjecten</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#speelveld-object"><i class="fa fa-check"></i><b>2.9.1</b> Speelveld object</a></li>
+<li class="chapter" data-level="2.9.2" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#obelix-spelobject"><i class="fa fa-check"></i><b>2.9.2</b> Obelix spelobject</a></li>
+<li class="chapter" data-level="2.9.3" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#de-menhir-en-de-bestemming"><i class="fa fa-check"></i><b>2.9.3</b> De menhir en de bestemming</a></li>
+<li class="chapter" data-level="2.9.4" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#scorebord"><i class="fa fa-check"></i><b>2.9.4</b> Scorebord</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ontwikkeling-van-een-brein.html"><a href="ontwikkeling-van-een-brein.html"><i class="fa fa-check"></i><b>3</b> Ontwikkeling van een brein</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">VR Experience (ML-agents)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="beginselen-ml-agents" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 2</span> Beginselen ML-Agents</h1>
+<div id="vereiste-voorkennis-en-voorinstallatie" class="section level2">
+<h2><span class="header-section-number">2.1</span> Vereiste voorkennis en voorinstallatie</h2>
+<p>Om onderstaande handleiding te kunnen volgen moet je eerst op <a href="https://learning.ap.be/course/view.php?id=36780">Digitap</a> de volgende modules hebben afgewerkt:</p>
+<ul>
+<li>Week 1 - Introduction Virtual Reality</li>
+<li>Week 2 - Introduction &amp; Unity Basics</li>
+<li>Week 3 - Unity - Materials &amp; lighting &amp; audio, camera &amp; deployment</li>
+<li>Week 4 - Physics , Player control &amp; UI</li>
+<li>Week 5 - Shooter Game</li>
+</ul>
+<p>De vereiste software voor dit onderdeel is Unity versie <strong>2019.4.10</strong>.</p>
+</div>
+<div id="installatie" class="section level2">
+<h2><span class="header-section-number">2.2</span> Installatie</h2>
+<blockquote>
+<p>Opgelet: De versie van de geïnstalleerde software speelt hier een belangrijke rol. ML-Agents is nog volop in ontwikkeling en de functionaliteiten kunnen tussen twee versies erg verschillen.</p>
+</blockquote>
+<p><strong>Release 6</strong> van het ML-Agents pakket vind je op de <a href="https://github.com/Unity-Technologies/ml-agents">ML_Agents GitHub repository</a>. Gedetailleerde installatie instructies vind je op <a href="https://github.com/Unity-Technologies/ml-agents/blob/release_6_docs/docs/Installation.md">deze handleiding</a>, maar niet alle stappen zijn noodzakelijk. Hieronder volgt de verkorte versie:</p>
+<ol style="list-style-type: decimal">
+<li><p>Installeer Python</p>
+<ol style="list-style-type: lower-alpha">
+<li>Wil je met een omgeving-manager werken zodat je in een afgezonderde omgeving kunt werken met zijn eigen specifieke set aan Python modules, dan kan je <a href="https://www.anaconda.com/">Anaconda</a> of de vereenvoudigde versie <a href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> downloaden in een folder waarvan het pad <em>geen spaties</em> bevat. Je test deze installatie met het commando <code>conda info</code>. Je kan een ontwikkel omgeving (eng: <em>environment</em>) maken met het commando <code>conda create -n ml-agents</code> en deze omgeving activeren met <code>conda activate ml-agents</code> en deactiveren met <code>conda deactivate</code>. Met de <em>ml-agents</em> omgeving actief kan je met de opdracht <code>python --version</code> controleren dat de versie van Python voldoende recent is (<code>3.8.1</code> of hoger) en met <code>pip install mlagents</code> installeer je de <code>mlagents</code> Python module</li>
+<li>Indien de geen omgeving-manager wenst te gebruiken of de installatie hiervan werkt niet goed op jouw machine, installeer dan gewoonweg de nieuwste versies van <a href="https://www.python.org/downloads/">Python</a> en <a href="https://pip.pypa.io/en/stable/">pip</a> en voer de opdracht <code>pip install mlagents</code> uit aan de prompt.</li>
+</ol></li>
+<li><p>(Optioneel, maar sterk aangeraden) Om toegang te hebben tot een aantal eenvoudige voorbeelden kopieer je best de repository met volgend git commando:</p>
+<pre class="cmd"><code>git clone --branch release_6 https://github.com/Unity-Technologies/ml-agents.git</code></pre></li>
+</ol>
+</div>
+<div id="ml-agents-toolkit" class="section level2">
+<h2><span class="header-section-number">2.3</span> ML-Agents Toolkit</h2>
+<p>De <em>Unity Machine Learning Agents Toolkit</em> (of kortweg <em>ML-Agents</em>) stelt de spel- of simulatie-ontwikkelaar in staat om één of meerdere karakters (eng: <em>non-player characters</em> of <em>NPCs</em>) of <em>agenten</em> (eng: <em>agents</em>) intelligent te maken door deze een virtueel <em>brein</em> mee te geven. Je bepaalt zelf wat je de agenten aanleert en dus wat er in het brein terechtkomt. Als het brein voldoende complex is en als er voldoende leertijd voorzien wordt zijn er bijna geen limieten aan wat je een agent kunt aanleren.</p>
+<p>Flexible Training Scenarios
+While the discussion so-far has mostly focused on training a single agent, with ML-Agents, several training scenarios are possible. We are excited to see what kinds of novel and fun environments the community creates. For those new to training intelligent agents, below are a few examples that can serve as inspiration:</p>
+<p>Hier is een voorbeeld:</p>
+<iframe width="1132" height="637" src="https://www.youtube.com/embed/fiQsmdwEGT8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>De toepassingen zijn legio:</p>
+<ul>
+<li><em>Single-Agent</em>: Je traint één agent om iets uit zichzelf te leren op basis van observaties die het doet (zoals de overstekende kip uit de video hierboven).</li>
+<li><em>Simultaneous Single-Agent</em>: Meerdere onafhankelijke karakters gekoppeld aan eenzelfde brein.</li>
+<li><em>Adversarial Self-Play</em>: Meerdere karakters met het zelfde brein maar tegenovergesteld beloningssysteem zodat de agent van zichzelf leert. Deze strategie is toegepast bij <a href="https://en.wikipedia.org/wiki/AlphaGo">AlphaGo</a></li>
+<li><em>Cooperative Multi-Agent</em>: Meerdere agent die leren samenwerken doordat ze een beloningssysteem delen.</li>
+<li><em>Competitive Multi-Agent</em>: Meerdere teams van interagerende agenten. Het <a href="https://www.youtube.com/watch?v=Hg3nmYD3DjQ">soccer voorbeeld</a> illustreert deze strategie.</li>
+<li><em>Ecosystem</em>: Complex systeem met meerdere agenten elke met onafhankelijke beloningssystemen.</li>
+</ul>
+<p>De onderstaande figuur biedt een overzicht van de elementen in de ML-Agents toolkit.</p>
+<div class="figure"><span id="fig:mlagents-system"></span>
+<img src="img/mlagents-system.svg" alt="Overzicht van de elementen van de ML-Agents toolkit. De Academy zorgt ervoor dat de agent gesynchroniseerd zijn en beheert de nodige omgeving-brede instellingen. Gebaseerd op bron."  />
+<p class="caption">
+Figuur 2.1: Overzicht van de elementen van de ML-Agents toolkit. De Academy zorgt ervoor dat de agent gesynchroniseerd zijn en beheert de nodige omgeving-brede instellingen. Gebaseerd op <a href="https://github.com/Unity-Technologies/ml-agents/blob/release_6_docs/docs/ML-Agents-Overview.md">bron</a>.
+</p>
+</div>
+
+</div>
+<div id="machine-learning-in-een-notedop" class="section level2">
+<h2><span class="header-section-number">2.4</span> Machine learning in een notedop</h2>
+<p>Machine learning (ML) is het vermogen van een algoritme om te <em>leren uit data</em>. Er zijn verscheidene vormen, maar het komt er meestal op neer dat op basis van data een model wordt gemaakt. De vorm van ML waar we hier mee in contact komen is conditionering (eng: <em>reinforcement learning</em>) Zulk een conditionering-model kan men beschouwen als een functie dat op basis van een bepaalde status de volgende actie probeert te voorspellen. Bijvoorbeeld, het model moet aanleren dat bij de input:</p>
+<p><q>…er is een wagen rechts van me die met hoge snelheid nadert…</q></p>
+<p>een gepaste actie zou kunnen zijn:</p>
+<p><q>Zet snel twee stappen naar voren</q></p>
+<p>Bij de input:</p>
+<p><q>…er staat een boom vlak voor mijn neus…</q></p>
+<p>zou dan weer de volgende actie passen:</p>
+<p><q>Zet een stap opzij.</q></p>
+<p>De set van alle combinaties van een status met de voorgestelde actie noemt men de <em>aangeleerd beleid</em> (eng: <em>policy</em>).</p>
+
+<div class="definition">
+<span id="def:def-ml" class="definition"><strong>Stelling 2.1  </strong></span>Machine learning (ML) is het vermogen van een algoritme om te <b>leren uit data</b>.
+</div>
+
+<div class="figure"><span id="fig:conditionering"></span>
+<img src="img/conditionering.svg" alt="Overzicht proces voor conditionering. Een toestand ruimte wordt gedefinieerd of er wordt een functie voorzien die kan meegeven of een toestand mogelijk is of niet. Daarnaast moet er een beloning systeem worden meegegeven zodat de tolk voor elke mogelijke handeling een beloning kan bepalen (of bestraffing door middel van een negatieve beloning)."  />
+<p class="caption">
+Figuur 2.2: Overzicht proces voor conditionering. Een toestand ruimte wordt gedefinieerd of er wordt een functie voorzien die kan meegeven of een toestand mogelijk is of niet. Daarnaast moet er een beloning systeem worden meegegeven zodat de tolk voor elke mogelijke handeling een beloning kan bepalen (of bestraffing door middel van een negatieve beloning).
+</p>
+</div>
+
+<div class="figure"><span id="fig:conditionering-detail"></span>
+<img src="img/conditionering-detail.svg" alt="Een detail van het conditioneringsproces. Het model wordt in dit geval door Python afgehandeld en er is een Python Low-Level API om te communiceren tussen Python en de Unity Academy."  />
+<p class="caption">
+Figuur 2.3: Een detail van het conditioneringsproces. Het model wordt in dit geval door Python afgehandeld en er is een <em>Python Low-Level API</em> om te communiceren tussen Python en de Unity Academy.
+</p>
+</div>
+
+</div>
+<div id="obelix-de-menhirhouwer" class="section level2">
+<h2><span class="header-section-number">2.5</span> Obelix de menhirhouwer</h2>
+<p>Vele mensen kennen de verhalen van Asterix en Obelix. Hierin speelt Obelix de rol van een menhirhouwer met bovennatuurlijke krachten. Spijtig genoeg is hij nogal naïef en doet hij wel eens domme dingen. Laten daar verandering in brengen door Obelix een brein te geven!</p>
+<div class="figure"><span id="fig:obelix"></span>
+<img src="img/Obelix.png" alt="Kunnen we Obelix de menhirhouwer een tikkeltje slimmer maken? bron afbeelding van Obelix." width="874" />
+<p class="caption">
+Figuur 2.4: Kunnen we Obelix de menhirhouwer een tikkeltje slimmer maken? <small><a href="https://asterix.fandom.com/fr/wiki/Ob%C3%A9lix">bron afbeelding van Obelix</a></small>.
+</p>
+</div>
+
+</div>
+<div id="het-spelverloop" class="section level2">
+<h2><span class="header-section-number">2.6</span> Het spelverloop</h2>
+<p>Het spelverloop wordt hieronder schematisch voorgesteld. Obelix is het hoofdpersonage en moet op zoek naar vrije menhirs. Aangekomen bij een menhir moet hij deze op zijn rug nemen en op zoek gaat naar een bestemming.</p>
+<div class="figure"><span id="fig:spelverloop"></span>
+<img src="img/spelverloop.png" alt="Het spelverloop hier uitgebeeld voor een enkele vrije, stilstaande menhir." width="804" />
+<p class="caption">
+Figuur 2.5: Het spelverloop hier uitgebeeld voor een enkele vrije, stilstaande menhir.
+</p>
+</div>
+
+</div>
+<div id="observaties-acties-en-beloning" class="section level2">
+<h2><span class="header-section-number">2.7</span> Observaties, acties en beloning</h2>
+<p>Er zijn drie zaken dat je bij een conditionering altijd eerst rustig over moet nadenken alvorens als een gek te beginnen ontwikkelen of ontwerpen: <em>observaties</em>, <em>acties</em> en <em>beloning</em>.</p>
+
+<div class="definition">
+<span id="def:obervaties" class="definition"><strong>Stelling 2.2  (Observaties)  </strong></span>Observaties die de agent maakt op basis van de omgeving vormen de invoer voor het leeralgoritme.
+</div>
+
+<p>In het geval van Obelix zijn de observaties diegenen die hij maakt door rond te kijken. We gaan zien dat ML-Agents ons hierbij helpt door componenten aan te bieden voor visuele perceptie.</p>
+
+<div class="definition">
+<span id="def:acties" class="definition"><strong>Stelling 2.3  (Acties)  </strong></span>Acties bepalen de bewegingsvrijheid van een agent of, algemener gesteld, de impact die een agent heeft op zijn omgeving.
+</div>
+
+<p>Zolang de agent niet veranderd in geen enkel van zijn eigenschappen (positie, snelheid, kleur, tags,…) dan kan het leeralgoritme daar niets mee, want wat het ook voorstelt als te ondernemen actie, er gebeurt toch niets. Voor Obelix is het al duidelijk geworden dat hij moet kunnen rondkijken om ervoor te zorgen dat er een menhir of bestemming in het gezichtsveld treedt. Verder moet hij kunnen ‘rondlopen’ zodat hij een menhir of bestemming kan benaderen. Als we er van uitgaan dat het plaatsen van de menhir op de rug en het daarna het lossen van de menhir op een bestemming volautomatisch gebeurt (i.e. hij moet er gewoon maar mee botsen) dan zijn er geen verdere acties die Obelix moeten kunnen ondernemen. De details van het roteren en het rondlopen bespreken we later.</p>
+
+<div class="definition">
+<span id="def:beloning" class="definition"><strong>Stelling 2.4  (Beloning)  </strong></span>Het beloningsmechanisme (eng: <em>rewards</em>, <em>incentives</em>) vertelt het leeralgoritme of de voorgestelde actie de agent dichter bij het einddoel van de leeroefening brengt of niet.
+</div>
+
+<p>Figuur <a href="beginselen-ml-agents.html#fig:obelix-belonging">2.6</a> geeft een overzicht van het beloningssysteem voor het Obelix spel. Het einddoel is het plaatsen van de menhir op een bestemming en dus daar krijgt het leeralgoritme de grootste score voor. Voor het naderen van een menhir of een bestemming krijgt de agent enkel een (matige) beloning indien het zich in de juiste staat bevindt. Bijvoorbeeld, als Obelix al een steen op zijn rug draagt, krijgt hij geen extra punten om een andere menhir te benaderen, want twee menhirs op de rug is misschien toch wat veel van het goede (in deze versie, natuurlijk kan je dit aanpassen).</p>
+<div class="figure"><span id="fig:obelix-belonging"></span>
+<img src="img/obelix-belonging.svg" alt="Het beloningssysteem voor het Obelix-spel."  />
+<p class="caption">
+Figuur 2.6: Het beloningssysteem voor het Obelix-spel.
+</p>
+</div>
+
+</div>
+<div id="het-speelveld" class="section level2">
+<h2><span class="header-section-number">2.8</span> Het speelveld</h2>
+<p>Laten we beginnen met alle componenten te bouwen om dit spel te bouwen. Merk op dat het verstandig is om eerst de ML logica in te bouwen alvorens je de spelobjecten tot in het detail uitwerkt. Dat is ook wat we hier gaan doen.</p>
+<div class="figure"><span id="fig:speelveld"></span>
+<img src="img/Speelveld.png" alt="Het speelveld met 5 spelobjecten." width="695" />
+<p class="caption">
+Figuur 2.7: Het speelveld met 5 spelobjecten.
+</p>
+</div>
+
+</div>
+<div id="spelobjecten" class="section level2">
+<h2><span class="header-section-number">2.9</span> Spelobjecten</h2>
+<div id="speelveld-object" class="section level3">
+<h3><span class="header-section-number">2.9.1</span> Speelveld object</h3>
+<p>Het speelveld krijgt de naam <code>Hange</code> en is een eenvoudig vlak met schaal X = Y = Z = 2 en posities en rotatie op X = Y = Z = 0 en met een <em>Mesh Collider</em>. Dit en alle andere objecten zitten vervat in een container object <code>Trainer</code> zodat het geheel later eenvoudig gedupliceerd kan worden.</p>
+<div class="figure"><span id="fig:objecten"></span>
+<img src="img/objecten.png" alt="De volledige hiërarchie binnen de spelobjecten met hun namen zoals ze in deze handleiding gebruikt zullen worden. Merk op dat de Menhir en Destination objecten prefabs zijn zodat men hier meerdere van kan genereren (eng: to spawn) tijdens de initialisatie van het spel." width="129" />
+<p class="caption">
+Figuur 2.8: De volledige hiërarchie binnen de spelobjecten met hun namen zoals ze in deze handleiding gebruikt zullen worden. Merk op dat de <code>Menhir</code> en <code>Destination</code> objecten prefabs zijn zodat men hier meerdere van kan genereren (eng: <em>to spawn</em>) tijdens de initialisatie van het spel.
+</p>
+</div>
+
+</div>
+<div id="obelix-spelobject" class="section level3">
+<h3><span class="header-section-number">2.9.2</span> Obelix spelobject</h3>
+<div class="figure"><span id="fig:obelix-object"></span>
+<img src="img/obelix-object.png" alt="Obelix spelobject. Zie tekst voor de eigenschappen van dit object." width="246" />
+<p class="caption">
+Figuur 2.9: Obelix spelobject. Zie tekst voor de eigenschappen van dit object.
+</p>
+</div>
+
+<p>Dit is het enige composiet spelobject met het cilindrisch lichaam <code>Obelix</code>, een rechteroog (<code>RightEye</code>), een linkeroog (<code>LeftEye</code>) en een neus (<code>Nose</code>). Het lichaam zelf is een capsule met schaal 1 in alle richtingen. Het bevat een passende <em>Capsule collider</em> en een <em>Rigid body</em> component met de rotatie-vrijheid beperkt tot enkel de y-as (dus <em>freeze rotation</em> X en Z aangevinkt). De ogen en de neus worden als dochter-componenten van het lichaam aangemaakt en bestaan uit bollen, respectievelijk een capsule, telkens met hun gepaste en aansluitende collider. Zorg dat het composiet object voldoende boven de grond is (y = 1.5) zodat hij netjes op het speelveld valt.</p>
+<p>De acties die Obelix gaat doen zijn gebaseerd op observaties. Zorg er dan ook voor dat beide ogen van Obelix kunnen ‘zien’ door aan beide ogen een <em>Ray Perception Sensor 3D</em> toe te voegen met de volgende eigenschappen (hier voor het links oog weergegeven).</p>
+<table>
+<thead>
+<tr class="header">
+<th>Eigenschap</th>
+<th>Waarde</th>
+<th>Uitleg</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Sensor Name</code></td>
+<td><code>LeftEye</code></td>
+<td>Unieke naam is belangrijk</td>
+</tr>
+<tr class="even">
+<td><code>Detecable Tag</code>s</td>
+<td><code>Menhir</code> en <code>Destination</code></td>
+<td>De objecten die Obelix kan zien</td>
+</tr>
+<tr class="odd">
+<td><code>Rays Per Direction</code></td>
+<td>6</td>
+<td>Aantal stralen aan weerszijden van middellijn.</td>
+</tr>
+<tr class="even">
+<td><code>Max Ray Degrees</code></td>
+<td>30</td>
+<td>Voor een zicht van 60° per oog.</td>
+</tr>
+<tr class="odd">
+<td><code>Sphere Cast Radius</code></td>
+<td>3.5</td>
+<td>De dikte van elke straal</td>
+</tr>
+<tr class="even">
+<td><code>Ray Length</code></td>
+<td>260</td>
+<td>Lengte van de stralen</td>
+</tr>
+<tr class="odd">
+<td><code>Stacked Raycasts</code></td>
+<td>1</td>
+<td>Geheugen voor de sensor</td>
+</tr>
+<tr class="even">
+<td><code>Start</code>/<code>End Vertical Offset</code></td>
+<td>0/0</td>
+<td>Naar boven of naar onder kijken</td>
+</tr>
+</tbody>
+</table>
+<p>Obelix krijgt dus een zicht van 120°. Hij zal zich dus moeten draaien om een volledig beeld te krijgen van zijn omgeving. De lengte van de stralen is zodanig gekozen dat hij van de ene hoek van het speelveld nog net een object in de tegenoverstaande hoek kan zien.</p>
+<p>Doe hetzelfde voor het rechteroog (je kan de component eenvoudig kopiëren). Roteer nu de ogen +/-30° volgens de Y-as zoals getoond op Figuur <a href="beginselen-ml-agents.html#fig:obelix-ray-perception">2.10</a> zodat er een zo breed mogelijk gezicht veld benut wordt (dus geen overlap).</p>
+<div class="figure"><span id="fig:obelix-ray-perception"></span>
+<img src="img/obelix-ray-perception.png" alt="De Ray Perception Sensor 3D component in actie." width="692" />
+<p class="caption">
+Figuur 2.10: De <em>Ray Perception Sensor 3D</em> component in actie.
+</p>
+</div>
+
+</div>
+<div id="de-menhir-en-de-bestemming" class="section level3">
+<h3><span class="header-section-number">2.9.3</span> De menhir en de bestemming</h3>
+<p>De menhir en de bestemming prefabs worden eenvoudig geconstrueerd als kubussen met schaal {XYZ: 0.5, 2, 0.5} met een passende <em>Box Collider</em>. De verschillen tussen de <code>Menhir</code> prefab en de <code>Destination</code> prefab staan hieronder opgesomd:</p>
+<div class="figure"><span id="fig:menhir-object"></span>
+<img src="img/menhir-object.png" alt="De menhir bestaat uit een eenvoudige balk." width="171" />
+<p class="caption">
+Figuur 2.11: De menhir bestaat uit een eenvoudige balk.
+</p>
+</div>
+
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Eigenschap</th>
+<th>Menhir</th>
+<th>Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Rigidbody</code> component</td>
+<td><code>Use Gravity</code> aan en <code>Freeze Rotation</code> voor de assen X en Y</td>
+<td>Geen <code>Rigidbody</code> component.</td>
+</tr>
+<tr class="even">
+<td>Startpositie (Y)</td>
+<td>Boven het veld, valt bij opstart tot op speelveld</td>
+<td>Rustend op het speelveld</td>
+</tr>
+<tr class="odd">
+<td>Tag</td>
+<td><code>Menhir</code></td>
+<td><code>Destination</code></td>
+</tr>
+</tbody>
+</table>
+<p>Je kan ze natuurlijk best ook met een verschillend materiaal bekleden zodat ze gemakkelijk te onderscheiden zijn.</p>
+</div>
+<div id="scorebord" class="section level3">
+<h3><span class="header-section-number">2.9.4</span> Scorebord</h3>
+<p>Dit object met naam <code>ScoreBoard</code> is een instantie van de <code>TextMeshPro</code> klasse dat de gecumuleerde beloning (eng: <em>cumulative reward</em>) zal weergeven. Hier wijzig je de eigenschappen naar keuze. Het is weliswaar handig als je de score kan lezen vanuit een hoog perspectief.</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="inleiding-tot-het-onderdeel-ml-agents.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ontwikkeling-van-een-brein.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/ddhaese/vr-experience/02_Beginselen_ML_Agents.Rmd",
+"text": "Bron"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
