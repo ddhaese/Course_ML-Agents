@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>VR Experience (ML-agents)</title>
+  <title>Hoofdstuk 7 Oefening | VR Experience (ML-agents)</title>
   <meta name="description" content="AI-augemnted virtual realitity course at the AP University College." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="VR Experience (ML-agents)" />
+  <meta property="og:title" content="Hoofdstuk 7 Oefening | VR Experience (ML-agents)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="VR Experience (ML-agents)" />
+  <meta name="twitter:title" content="Hoofdstuk 7 Oefening | VR Experience (ML-agents)" />
   
   <meta name="twitter:description" content="AI-augemnted virtual realitity course at the AP University College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="inleiding-tot-het-onderdeel-ml-agents.html"/>
+<link rel="prev" href="trainen-van-het-nn.html"/>
+<link rel="next" href="zelf-een-eigen-intelligente-agent-creëren.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -146,7 +146,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#installatie"><i class="fa fa-check"></i><b>2.2</b> Installatie</a></li>
 <li class="chapter" data-level="2.3" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#ml-agents-toolkit"><i class="fa fa-check"></i><b>2.3</b> ML-Agents Toolkit</a></li>
 <li class="chapter" data-level="2.4" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#machine-learning-in-een-notedop"><i class="fa fa-check"></i><b>2.4</b> Machine learning in een notedop</a></li>
-<li class="chapter" data-level="2.5" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#interactie-tussen-het-nn-en-de-unity-omgeving"><i class="fa fa-check"></i><b>2.5</b> Interactie tussen het NN en de Unity omgeving</a></li>
+<li class="chapter" data-level="2.5" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#deep-reinforcement-learning"><i class="fa fa-check"></i><b>2.5</b> Deep reinforcement learning</a></li>
+<li class="chapter" data-level="2.6" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#levenscyclus-ml-agents"><i class="fa fa-check"></i><b>2.6</b> Levenscyclus ML-Agents</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="obelix-de-menhirhouwer.html"><a href="obelix-de-menhirhouwer.html"><i class="fa fa-check"></i><b>3</b> Obelix de menhirhouwer</a><ul>
 <li class="chapter" data-level="3.1" data-path="obelix-de-menhirhouwer.html"><a href="obelix-de-menhirhouwer.html#inleiding-tot-de-usecase"><i class="fa fa-check"></i><b>3.1</b> Inleiding tot de usecase</a></li>
@@ -186,22 +187,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="testen-van-de-spellogica.html"><a href="testen-van-de-spellogica.html"><i class="fa fa-check"></i><b>5</b> Testen van de spellogica</a></li>
 <li class="chapter" data-level="6" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html"><i class="fa fa-check"></i><b>6</b> Trainen van het NN</a><ul>
-<li class="chapter" data-level="6.1" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#configuratie-van-het-nn"><i class="fa fa-check"></i><b>6.1</b> Configuratie van het NN</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#trainer-type"><i class="fa fa-check"></i><b>6.1.1</b> Trainer-type</a></li>
-<li class="chapter" data-level="6.1.2" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#hyperparameters"><i class="fa fa-check"></i><b>6.1.2</b> Hyperparameters</a></li>
-<li class="chapter" data-level="6.1.3" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#architectuur-van-het-nn"><i class="fa fa-check"></i><b>6.1.3</b> Architectuur van het NN</a></li>
-<li class="chapter" data-level="6.1.4" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#beloningsysteem"><i class="fa fa-check"></i><b>6.1.4</b> Beloningsysteem</a></li>
-<li class="chapter" data-level="6.1.5" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#extra-informatie-rond-configuratie"><i class="fa fa-check"></i><b>6.1.5</b> Extra informatie rond configuratie</a></li>
-</ul></li>
+<li class="chapter" data-level="6.1" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#configuratie-van-het-nn"><i class="fa fa-check"></i><b>6.1</b> Configuratie van het NN</a></li>
 <li class="chapter" data-level="6.2" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#start-de-training"><i class="fa fa-check"></i><b>6.2</b> Start de training</a></li>
 <li class="chapter" data-level="6.3" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#paralleliseren"><i class="fa fa-check"></i><b>6.3</b> Paralleliseren</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="testen-van-een-nn.html"><a href="testen-van-een-nn.html"><i class="fa fa-check"></i><b>7</b> Testen van een NN</a><ul>
-<li class="chapter" data-level="7.1" data-path="testen-van-een-nn.html"><a href="testen-van-een-nn.html#het-nn-bestand"><i class="fa fa-check"></i><b>7.1</b> Het nn-bestand</a></li>
-<li class="chapter" data-level="7.2" data-path="testen-van-een-nn.html"><a href="testen-van-een-nn.html#tensorboard"><i class="fa fa-check"></i><b>7.2</b> Tensorboard</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="opdracht.html"><a href="opdracht.html"><i class="fa fa-check"></i><b>8</b> Opdracht</a></li>
-<li class="chapter" data-level="9" data-path="zelf-een-eigen-intelligente-agent-creëren.html"><a href="zelf-een-eigen-intelligente-agent-creëren.html"><i class="fa fa-check"></i><b>9</b> Zelf een eigen intelligente agent creëren</a></li>
+<li class="chapter" data-level="7" data-path="oefening.html"><a href="oefening.html"><i class="fa fa-check"></i><b>7</b> Oefening</a></li>
+<li class="chapter" data-level="8" data-path="zelf-een-eigen-intelligente-agent-creëren.html"><a href="zelf-een-eigen-intelligente-agent-creëren.html"><i class="fa fa-check"></i><b>8</b> Zelf een eigen intelligente agent creëren</a></li>
 <li class="chapter" data-level="" data-path="bronvermelding.html"><a href="bronvermelding.html"><i class="fa fa-check"></i>Bronvermelding</a></li>
 </ul>
 
@@ -220,69 +211,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">VR Experience (ML-agents)</h1>
-<p class="author"><em>34145/1928/2021/1/56<br>David D’Haese</em></p>
-<p class="date"><em>Gepubliceerd op 2020-10-16<br><img class='cover' src='img/cover.png' alt='spirogyra sp.'/><br>Spirogyra sp., Motic BA310</em></p>
-</div>
-<div id="ml-agents" class="section level1 unnumbered">
-<h1>ML-Agents</h1>
-<p>In the course <em>VR Experience</em> the student is being submerged in VR- and 3D game development using the Unity engine. The student will learn to work with different camera perspectives, the physics engine, audio, light and scripting. In addition, using the ML-Agents toolkit, the student will learn to enrich applications with AI. The student will be able to train agents using artificial neural networks or other ML algorithms. This repository deal only with the latter part of the course, namely the the use of ML-agents as well as a basic introduction to ML.</p>
-<div id="language" class="section level2 unnumbered">
-<h2>Language</h2>
-<p>The course is in Dutch.</p>
-</div>
-<div id="license" class="section level2 unnumbered">
-<h2>License</h2>
-<p>The content of this project including its source code is licensed under the GNU Affero General Public v3.0 license.</p>
-<table>
-<thead>
-<tr class="header">
-<th>You are allowed to…</th>
-<th>Under the conditions…</th>
-<th>You are <em>not</em> allowed to…</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span title="The licensed material and derivatives may be used for commercial purposes.">Commercial use</span></td>
-<td><span title="Source code must be made available when the licensed material is distributed.">Disclose source</span></td>
-<td><span title="This license includes a limitation of liability.">Liability</span></td>
-</tr>
-<tr class="even">
-<td><span title="The licensed material may be distributed.">Distribution</span></td>
-<td><span title="A copy of the license and copyright notice must be included with the licensed material.">License and copyright notice</span></td>
-<td><span title="This license explicitly states that it does NOT provide any warranty.">Warranty</span></td>
-</tr>
-<tr class="odd">
-<td><span title="The licensed material may be modified.">Modification</span></td>
-<td><span title="Users who interact with the licensed material via network are given the right to receive a copy of the source code.">Network use is distribution</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><span title="This license provides an express grant of patent rights from contributors.">Patent use</span></td>
-<td><span title="Modifications must be released under the same license when distributing the licensed material. In some cases a similar or related license may be used.">Same license</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><span title="The licensed material may be used and modified in private.">Private use</span></td>
-<td><span title="Changes made to the licensed material must be documented.">State changes</span></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<p><small>© 2020 David D’Haese</small></p>
+<div id="oefening" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 7</span> Oefening</h1>
 
-</div>
+<div class="exercise">
+<p><span id="exr:bemoeilijken" class="exercise"><strong>Oefening 7.1  (Bemoeilijken)  </strong></span>Kies uit onderstaande lijst 2 tot 5 parameters die het trainen van Obelix’ brein kunnen beïnvloeden. Wijzig de gekozen parameters één voor één tijdens het trainen van het NN en beschrijf wat er gebeurt met de curve van de gemiddelde beloning.</p>
+<ul>
+<li>Aantal menhirs (<code>menhirCount</code>)</li>
+<li>Gemiddelde snelheid van de menhirs</li>
+<li>Het geheugen van de obervatievector via <em>Stacked Vectors</em> in de <em>Behavior Parameters</em>-component</li>
+<li>Obelix’ translatie-snelheid (<code>speed</code>)</li>
+<li>Obelix’ rotatie-snelheid (<code>rotationSpeed</code>)</li>
+<li>Beloningssysteem, bijv. de grootte van de afstraffing van Obelix om niets te doen</li>
+<li>Aantal stralen in de Ray Perception componenten</li>
+<li>Breedte van het gezichtsveld</li>
+<li>Lengte van de stralen in de Ray Perception</li>
+<li>Grootte van de colliders van de menhir- of de bestemming-prefab</li>
+<li>Translatie- of rotatiewrijving van Obelix
+</div></li>
+</ul>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="inleiding-tot-het-onderdeel-ml-agents.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="trainen-van-het-nn.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="zelf-een-eigen-intelligente-agent-creëren.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -312,7 +267,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ddhaese/vr-experience/index.Rmd",
+"link": "https://github.com/ddhaese/vr-experience/02_Beginselen_ML_Agents.Rmd",
 "text": "Bron"
 },
 "download": null,

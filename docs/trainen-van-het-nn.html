@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>VR Experience (ML-agents)</title>
+  <title>Hoofdstuk 6 Trainen van het NN | VR Experience (ML-agents)</title>
   <meta name="description" content="AI-augemnted virtual realitity course at the AP University College." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="VR Experience (ML-agents)" />
+  <meta property="og:title" content="Hoofdstuk 6 Trainen van het NN | VR Experience (ML-agents)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="VR Experience (ML-agents)" />
+  <meta name="twitter:title" content="Hoofdstuk 6 Trainen van het NN | VR Experience (ML-agents)" />
   
   <meta name="twitter:description" content="AI-augemnted virtual realitity course at the AP University College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="inleiding-tot-het-onderdeel-ml-agents.html"/>
+<link rel="prev" href="testen-van-de-spellogica.html"/>
+<link rel="next" href="testen-van-een-nn.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -220,59 +220,158 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">VR Experience (ML-agents)</h1>
-<p class="author"><em>34145/1928/2021/1/56<br>David D’Haese</em></p>
-<p class="date"><em>Gepubliceerd op 2020-10-16<br><img class='cover' src='img/cover.png' alt='spirogyra sp.'/><br>Spirogyra sp., Motic BA310</em></p>
+<div id="trainen-van-het-nn" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 6</span> Trainen van het NN</h1>
+<div id="configuratie-van-het-nn" class="section level2">
+<h2><span class="header-section-number">6.1</span> Configuratie van het NN</h2>
+<p>Configuratie van het NN en de Python-Unity interface gebeurt hier d.m.v. een yaml-bestand.Maak daarom een nieuw bestand aan met de naam <code>Obelix-01.yml</code>. We beginnen met aan te geven dat de configuratie geldt voor de Obelix agent:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb20-1"><a href="trainen-van-het-nn.html#cb20-1"></a><span class="fu">behaviors</span><span class="kw">:</span></span>
+<span id="cb20-2"><a href="trainen-van-het-nn.html#cb20-2"></a><span class="at">  </span><span class="fu">Obelix</span><span class="kw">:</span></span></code></pre></div>
+<p>Opgelet: De naam <code>Obelix</code> moet overeenkomen met de <em>Behavior Name</em>.</p>
+<p>Je kan in het configuratiebestand meerdere gedragingen toevoegen, waarbij een gedrag overeenkomt met type agent en met een NN.</p>
+<div id="trainer-type" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Trainer-type</h3>
+<p>De eerste configuratie-parameter is</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb21-1"><a href="trainen-van-het-nn.html#cb21-1"></a><span class="at">    </span><span class="fu">trainer_type</span><span class="kw">:</span><span class="at"> ppo</span></span></code></pre></div>
+<p>Hiermee bepaal je het type conditioneringsalgoritme en meteen ook een groot aantal andere confirguratieparameters. De mogelijkheden zijn:</p>
+<ul>
+<li><code>ppo</code>: <em>Proximal Policy Optimization</em> Dit algoritme zal trachten niet te ver af te wijken van de vorige set van voorgestelde acties (eng: <em>policy</em>) door een vorm van regularisatie toe te passen</li>
+<li><code>sac</code>: <em>Soft-Actor Critic</em> Is een zogenaamde <em>off-policy</em> algoritme dat uit zijn geheugen ervaringen uit het verleden kan ophalen. Het heeft minder cycli nodig om te leren en is beter geschikt voor meer complexe omgevingen.</li>
+</ul>
 </div>
-<div id="ml-agents" class="section level1 unnumbered">
-<h1>ML-Agents</h1>
-<p>In the course <em>VR Experience</em> the student is being submerged in VR- and 3D game development using the Unity engine. The student will learn to work with different camera perspectives, the physics engine, audio, light and scripting. In addition, using the ML-Agents toolkit, the student will learn to enrich applications with AI. The student will be able to train agents using artificial neural networks or other ML algorithms. This repository deal only with the latter part of the course, namely the the use of ML-agents as well as a basic introduction to ML.</p>
-<div id="language" class="section level2 unnumbered">
-<h2>Language</h2>
-<p>The course is in Dutch.</p>
+<div id="hyperparameters" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Hyperparameters</h3>
+<p>Hieronder de hyperparameters op het leeralgoritme:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb22-1"><a href="trainen-van-het-nn.html#cb22-1"></a><span class="at">    </span><span class="fu">max_steps</span><span class="kw">:</span><span class="at"> </span><span class="fl">5.0e5</span></span>
+<span id="cb22-2"><a href="trainen-van-het-nn.html#cb22-2"></a><span class="at">    </span><span class="fu">time_horizon</span><span class="kw">:</span><span class="at"> </span><span class="dv">64</span></span>
+<span id="cb22-3"><a href="trainen-van-het-nn.html#cb22-3"></a><span class="at">    </span><span class="fu">summary_freq</span><span class="kw">:</span><span class="at"> </span><span class="dv">10000</span></span>
+<span id="cb22-4"><a href="trainen-van-het-nn.html#cb22-4"></a><span class="at">    </span><span class="fu">keep_checkpoints</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb22-5"><a href="trainen-van-het-nn.html#cb22-5"></a><span class="at">    </span><span class="fu">checkpoint_interval</span><span class="kw">:</span><span class="at"> </span><span class="dv">50000</span></span>
+<span id="cb22-6"><a href="trainen-van-het-nn.html#cb22-6"></a><span class="at">    </span></span>
+<span id="cb22-7"><a href="trainen-van-het-nn.html#cb22-7"></a><span class="at">    </span><span class="fu">hyperparameters</span><span class="kw">:</span></span>
+<span id="cb22-8"><a href="trainen-van-het-nn.html#cb22-8"></a><span class="at">      </span><span class="fu">batch_size</span><span class="kw">:</span><span class="at"> </span><span class="dv">32</span></span>
+<span id="cb22-9"><a href="trainen-van-het-nn.html#cb22-9"></a><span class="at">      </span><span class="fu">buffer_size</span><span class="kw">:</span><span class="at"> </span><span class="dv">9600</span></span>
+<span id="cb22-10"><a href="trainen-van-het-nn.html#cb22-10"></a><span class="at">      </span><span class="fu">learning_rate</span><span class="kw">:</span><span class="at"> </span><span class="fl">3.0e-4</span></span>
+<span id="cb22-11"><a href="trainen-van-het-nn.html#cb22-11"></a><span class="at">      </span><span class="fu">learning_rate_schedule</span><span class="kw">:</span><span class="at"> constant</span></span>
+<span id="cb22-12"><a href="trainen-van-het-nn.html#cb22-12"></a><span class="at">      </span><span class="fu">beta</span><span class="kw">:</span><span class="at"> </span><span class="fl">5.0e-3</span></span>
+<span id="cb22-13"><a href="trainen-van-het-nn.html#cb22-13"></a><span class="at">      </span><span class="fu">epsilon</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.2</span></span>
+<span id="cb22-14"><a href="trainen-van-het-nn.html#cb22-14"></a><span class="at">      </span><span class="fu">lambd</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.95</span></span>
+<span id="cb22-15"><a href="trainen-van-het-nn.html#cb22-15"></a><span class="at">      </span><span class="fu">num_epoch</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span></code></pre></div>
+<ul>
+<li><code>max_steps</code>: totaal maximum aantal stappen de simulatie mag doorlopen gedurende de ganse trainingsfase</li>
+<li><code>time_horizon</code>: aantal ervaringen samen te nemen alvorens deze naar de ervaringsbuffer te sturen. Een set van observaties samen met de status waarin de agent zich bevindt, dus een input-rij voor het NN, noemt men de ervaring (eng: <em>experience</em>).</li>
+<li><code>summary_freq</code>: aantal ervaringen die worden samengenomen alvorens samenvattende statistieken ervan te berekenen (≈ resolutie in Tensorboard)</li>
+<li><code>keep_checkpoints</code>: Een checkpoint is een soort backup van het NN model</li>
+<li><code>checkpoint_interval</code>: de frequentie waarmee de backups genomen moeten worden</li>
+<li><code>batch_size</code> bepaalt de grootte van de <em>minibatch</em>. <code>batch_size</code> weerspiegelt het aantal ervaringen die worden samengenomen per optimalisatie-stap (gradiënt-afdaling, eng: <em>gradient descent</em>)</li>
+<li><code>buffer_size</code> geeft het aantal ervaringen weer die worden samengenomen alvorens het leeralgoritme, in batches <code>batch_size</code> groot, de ervaringen verwerkt. Moet dus een meervoud van <code>batch_size</code> zijn</li>
+<li><code>learning_rate</code> is de leersnelheid en bepaald tijdens de optimalisatie de grootte van de stap die het leeralgoritme in de richting van de gradient neemt</li>
+<li><code>learning_rate_schedule</code>: is de mate waarin de leersnelheid zich aanpast tijdens het leerproces. <code>constant</code> betekent dat de leersnelheid constant blijft en <code>linear</code> betekent dat de leersnelheid gelijkmatig afneemt naarmate het maximum aantal stappen (<code>max_steps</code>) nadert</li>
+<li><code>beta</code> geeft weer hoe sterk het voorstel van een nieuw beleid wordt afgeremd en is een cruciaal onderdeel van de regularisatie van het beleid. Door middel van de entropie (Tensorboard) te volgen, kan men deze waarde bijsturen indien nodig. Daalt de entropie te snel t.o.v. een stijgende gemiddelde beloning → verhoog <code>beta</code>, daalt het te traag → verlaag <code>beta</code></li>
+<li><code>epsilon</code> is gelijkaardig aan <code>beta</code> maar bepaald het maximum waarmee een nieuw beleid mag verschillen van het vorig voorgesteld beleid</li>
+<li><code>lambd</code> is nog een regularisatie-parameter die bepaald hoe sterk de beloningen doorwegen tijdens het aanpassen van de gewichten van de connectoren van het NN</li>
+<li><code>num_epoch</code> bepaald het aantal NN epochs per Unity frame</li>
+</ul>
 </div>
-<div id="license" class="section level2 unnumbered">
-<h2>License</h2>
-<p>The content of this project including its source code is licensed under the GNU Affero General Public v3.0 license.</p>
-<table>
-<thead>
-<tr class="header">
-<th>You are allowed to…</th>
-<th>Under the conditions…</th>
-<th>You are <em>not</em> allowed to…</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span title="The licensed material and derivatives may be used for commercial purposes.">Commercial use</span></td>
-<td><span title="Source code must be made available when the licensed material is distributed.">Disclose source</span></td>
-<td><span title="This license includes a limitation of liability.">Liability</span></td>
-</tr>
-<tr class="even">
-<td><span title="The licensed material may be distributed.">Distribution</span></td>
-<td><span title="A copy of the license and copyright notice must be included with the licensed material.">License and copyright notice</span></td>
-<td><span title="This license explicitly states that it does NOT provide any warranty.">Warranty</span></td>
-</tr>
-<tr class="odd">
-<td><span title="The licensed material may be modified.">Modification</span></td>
-<td><span title="Users who interact with the licensed material via network are given the right to receive a copy of the source code.">Network use is distribution</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><span title="This license provides an express grant of patent rights from contributors.">Patent use</span></td>
-<td><span title="Modifications must be released under the same license when distributing the licensed material. In some cases a similar or related license may be used.">Same license</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><span title="The licensed material may be used and modified in private.">Private use</span></td>
-<td><span title="Changes made to the licensed material must be documented.">State changes</span></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<p><small>© 2020 David D’Haese</small></p>
+<div id="architectuur-van-het-nn" class="section level3">
+<h3><span class="header-section-number">6.1.3</span> Architectuur van het NN</h3>
+<p>Hieronder vind je de configuratie van de architectuur van het NN dat gekoppeld wordt met de Obelix agent:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb23-1"><a href="trainen-van-het-nn.html#cb23-1"></a><span class="at">    </span><span class="fu">network_settings</span><span class="kw">:</span></span>
+<span id="cb23-2"><a href="trainen-van-het-nn.html#cb23-2"></a><span class="at">      </span><span class="fu">num_layers</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb23-3"><a href="trainen-van-het-nn.html#cb23-3"></a><span class="at">      </span><span class="fu">hidden_units</span><span class="kw">:</span><span class="at"> </span><span class="dv">128</span></span>
+<span id="cb23-4"><a href="trainen-van-het-nn.html#cb23-4"></a><span class="at">      </span><span class="fu">normalize</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code></pre></div>
+<ul>
+<li><code>num_layers</code>: Het aantal verborgen lagen van het NN, dus exclusief de invoer en uitvoer laag</li>
+<li><code>hidden_units</code>: Het aantal neuronen of nodes per verborgen laag in het NN. Samen met <code>num_layers</code> bepaald dit de grootte van het artificieel brein.</li>
+<li><code>normalize</code>: Moet eigenlijk <a href="https://en.wikipedia.org/wiki/Standard_score"><em>standardize</em></a> heten en kan belangrijk zijn wanneer men acties d.m.v. <a href="https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/random-variables-discrete/v/discrete-and-continuous-random-variables">continue variabelen</a> codeert.</li>
+</ul>
+<p>Als je aan je eigen agent gaat werken, moet je ook nadenken of er geheugen nodig is. Zo ja, dan kan je dit op deze manier coderen, binnen het onderdeel <code>network_settings</code> (zie <a href="trainen-van-het-nn.html#extra-informatie-rond-configuratie">hieronder</a> voor links naar online documentatie hierrond):</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb24-1"><a href="trainen-van-het-nn.html#cb24-1"></a><span class="at">      </span><span class="fu">memory</span><span class="kw">:</span></span>
+<span id="cb24-2"><a href="trainen-van-het-nn.html#cb24-2"></a><span class="at">        </span><span class="fu">sequence_length</span><span class="kw">:</span><span class="at"> </span><span class="dv">64</span></span>
+<span id="cb24-3"><a href="trainen-van-het-nn.html#cb24-3"></a><span class="at">        </span><span class="fu">memory_size</span><span class="kw">:</span><span class="at"> </span><span class="dv">256</span></span></code></pre></div>
+</div>
+<div id="beloningsysteem" class="section level3">
+<h3><span class="header-section-number">6.1.4</span> Beloningsysteem</h3>
+<p>Het einddoel van het NN is om een beleid te vinden dat de beloning zo groot mogelijk maakt. De beloningen die in <code>Obelix.cs</code> bepaald werden, noemt men de extrinsieke beloningen (eng: <em>extrinsic rewards</em>) omdat ze door de Unity Agent en niet door het leeralgoritme zelf worden bepaald. Daarnaast kan men nog een aantal intrinsieke beloningen definiëren. Uiteindelijk zal het leeralgoritme een mix van extrinsieke en intrinsieke beloningen gebruiken.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb25-1"><a href="trainen-van-het-nn.html#cb25-1"></a><span class="at">    </span><span class="fu">reward_signals</span><span class="kw">:</span></span>
+<span id="cb25-2"><a href="trainen-van-het-nn.html#cb25-2"></a><span class="at">      </span><span class="fu">extrinsic</span><span class="kw">:</span></span>
+<span id="cb25-3"><a href="trainen-van-het-nn.html#cb25-3"></a><span class="at">        </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.0</span></span>
+<span id="cb25-4"><a href="trainen-van-het-nn.html#cb25-4"></a><span class="at">        </span><span class="fu">gamma</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.99</span></span>
+<span id="cb25-5"><a href="trainen-van-het-nn.html#cb25-5"></a><span class="at">      </span><span class="fu">curiosity</span><span class="kw">:</span></span>
+<span id="cb25-6"><a href="trainen-van-het-nn.html#cb25-6"></a><span class="at">        </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.02</span></span>
+<span id="cb25-7"><a href="trainen-van-het-nn.html#cb25-7"></a><span class="at">        </span><span class="fu">gamma</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.99</span></span>
+<span id="cb25-8"><a href="trainen-van-het-nn.html#cb25-8"></a><span class="at">        </span><span class="fu">encoding_size</span><span class="kw">:</span><span class="at"> </span><span class="dv">256</span></span>
+<span id="cb25-9"><a href="trainen-van-het-nn.html#cb25-9"></a><span class="at">        </span><span class="fu">learning_rate </span><span class="kw">:</span><span class="at"> </span><span class="fl">1e-3</span></span></code></pre></div>
+<ul>
+<li><code>curiosity</code> is zo een intrinsieke beloning die gebruikt kan worden indien de beloningen schaars zijn en indien de kans dus klein is om beloond te worden. Door deze waarde te verhogen, verhoog je ook de kans dat de agent ‘per ongeluk’ de juiste actie uitvoert.</li>
+<li><code>strength</code> geeft een gewicht aan het specifiek type belonging</li>
+<li><code>gamma</code> is een vermenigvuldigingsfactor die aangeeft in hoeverre de agent moet anticiperen op toekomstige beloningen van dit type</li>
+<li><code>encoding_size</code>: (optioneel) grootte van het intrinsiek model</li>
+<li><code>learning_rate</code>: (optioneel) snelheid waarmee de <code>strength</code> mag afnemen</li>
+</ul>
+</div>
+<div id="extra-informatie-rond-configuratie" class="section level3">
+<h3><span class="header-section-number">6.1.5</span> Extra informatie rond configuratie</h3>
+<blockquote>
+<p>Meer informatie rond de configuratie van agents vind je <a href="https://github.com/Unity-Technologies/ml-agents/blob/release_6_docs/docs/Training-Configuration-File.md">hier</a> en <a href="https://gitee.com/mirrors/Unity-ML-Agents/blob/2a06b63ba73b8c18aae1d213a74280d7f0a8a298/docs/Training-PPO.md">hier</a>.</p>
+</blockquote>
+<blockquote>
+<p>Je kan <em>Environment Parameters</em> definiëren in de root van jouw configuratiebestand die je dan vanuit C# kan aanspreken (zie <a href="https://github.com/Unity-Technologies/ml-agents/blob/release_6_docs/docs/Training-ML-Agents.md#environment-parameters">hier</a>)</p>
+</blockquote>
+<blockquote>
+<p>Informatie rond <a href="https://spinningup.openai.com/en/latest/user/algorithms.html#the-on-policy-algorithms">algoritme families</a></p>
+</blockquote>
+</div>
+</div>
+<div id="start-de-training" class="section level2">
+<h2><span class="header-section-number">6.2</span> Start de training</h2>
+<p>Hier is een stappenplan voor het starten van de training:</p>
+<ol style="list-style-type: decimal">
+<li><p>Zorg dat het Unity project open is en zorg ervoor dat de <em>Behavior Type</em> in de <em>Behavior Parameters</em>-component op <em>Default</em> staat.</p></li>
+<li><p>Navigeer naar de folder van je Unity project en maak daarin een sub-folder <em>Learning</em></p></li>
+<li><p>Kopieer het yaml configuratiebestand in deze folder</p></li>
+<li><p>Open een console van je OS in deze sub-folder</p></li>
+<li><p>Indien van toepassing voor jouw activeer je de gepaste Python omgeving</p></li>
+<li><p>Voer de Python <code>mlagents-learn</code> functie uit met als parameters de naam van het configuratiebestand en een naam voor de uitvoering (eng: <em>run</em>)</p>
+<pre class="cmd"><code>mlagents-learn Obelix-01.yml --run-id Obelix-01</code></pre>
+<p>Krijg je het Unity logo te zien, dan zit het meestal goed. Anders moet je de foutmeldingen lezen en indien nodig opzoeken.</p>
+<pre><code>                        ▄▄▄▓▓▓▓
+                ╓▓▓▓▓▓▓█▓▓▓▓▓
+           ,▄▄▄m▀▀▀&#39;  ,▓▓▓▀▓▓▄                           ▓▓▓  ▓▓▌
+         ▄▓▓▓▀&#39;      ▄▓▓▀  ▓▓▓      ▄▄     ▄▄ ,▄▄ ▄▄▄▄   ,▄▄ ▄▓▓▌▄ ▄▄▄    ,▄▄
+       ▄▓▓▓▀        ▄▓▓▀   ▐▓▓▌     ▓▓▌   ▐▓▓ ▐▓▓▓▀▀▀▓▓▌ ▓▓▓ ▀▓▓▌▀ ^▓▓▌  ╒▓▓▌
+     ▄▓▓▓▓▓▄▄▄▄▄▄▄▄▓▓▓      ▓▀      ▓▓▌   ▐▓▓ ▐▓▓    ▓▓▓ ▓▓▓  ▓▓▌   ▐▓▓▄ ▓▓▌
+     ▀▓▓▓▓▀▀▀▀▀▀▀▀▀▀▓▓▄     ▓▓      ▓▓▌   ▐▓▓ ▐▓▓    ▓▓▓ ▓▓▓  ▓▓▌    ▐▓▓▐▓▓
+       ^█▓▓▓        ▀▓▓▄   ▐▓▓▌     ▓▓▓▓▄▓▓▓▓ ▐▓▓    ▓▓▓ ▓▓▓  ▓▓▓▄    ▓▓▓▓`
+         &#39;▀▓▓▓▄      ^▓▓▓  ▓▓▓       └▀▀▀▀ ▀▀ ^▀▀    `▀▀ `▀▀   &#39;▀▀    ▐▓▓▌
+            ▀▀▀▀▓▄▄▄   ▓▓▓▓▓▓,                                      ▓▓▓▓▀
+                `▀█▓▓▓▓▓▓▓▓▓▌
+                     ¬`▀▀▀█▓</code></pre></li>
+<li><p>Je krijgt dan slechts enkele seconden om binnen de Unity GUI de ►-toets in te drukken</p></li>
+</ol>
+<blockquote>
+<p>Je kan alternatief ook werken met <a href="https://github.com/Unity-Technologies/ml-agents/blob/release_6_docs/docs/Learning-Environment-Executable.md">Unity Executables</a>.</p>
+</blockquote>
+<blockquote>
+<p>Je kan een stopgezette trainging hervatten met de <code>--resume</code> parameter van <code>mlagents-learn</code></p>
+</blockquote>
+<blockquote>
+<p>Voor hulp: <code>mlagents-learn --help</code></p>
+</blockquote>
+<p>Je kan de training zolang laten lopen als je wil. Je stopt de training gewoon door nogmaals de ►-toets in te drukken. Tijdens de trainingsfase kan je het verloop van de gemiddelde geaccumuleerde beloning per episode volgen door middel van <em>Tensorboard</em>, een module van <em>Tensorflow</em> (zelfde sub-folder):</p>
+<pre class="cmd"><code>tensorboard --logdir results</code></pre>
+<p>Zie § <a href="testen-van-een-nn.html#tensorboard">Tensorboard</a> voor meer info.</p>
+</div>
+<div id="paralleliseren" class="section level2">
+<h2><span class="header-section-number">6.3</span> Paralleliseren</h2>
+<p>Om de trainingsfase te verkorten, kan je de omgevingen dupliceren. De agents binnen de gedupliceerde omgevingen moeten allen gekoppeld zijn met hetzelfde NN via eenzelfde <em>Behavior Name</em> eigenschap in de <em>Behavior Parameters</em> component.</p>
+<div class="figure"><span id="fig:parallel-envs"></span>
+<img src="img/parallel-envs.png" alt="Meerdere gedupliceerde omgevingen om de training te bespoedigen." width="640" />
+<p class="caption">
+Figuur 6.1: Meerdere gedupliceerde omgevingen om de training te bespoedigen.
+</p>
+</div>
+
 
 </div>
 </div>
@@ -281,8 +380,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-
-<a href="inleiding-tot-het-onderdeel-ml-agents.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="testen-van-de-spellogica.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="testen-van-een-nn.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -312,7 +411,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ddhaese/vr-experience/index.Rmd",
+"link": "https://github.com/ddhaese/vr-experience/06_Trainen_NN.Rmd",
 "text": "Bron"
 },
 "download": null,

@@ -39,12 +39,12 @@ h2.author{
 
 img {
   border: 0;
-  transition: transform .2s;
+  /* transition: transform .2s;*/
   margin: 0 0 30px 0;
 }
 
 img:hover {
-  transform: scale(1.5);
+  /* transform: scale(1.5); */
 }
 
 div.sourceCode + pre {

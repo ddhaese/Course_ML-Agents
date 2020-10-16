@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>VR Experience (ML-agents)</title>
+  <title>Hoofdstuk 3 Obelix de menhirhouwer | VR Experience (ML-agents)</title>
   <meta name="description" content="AI-augemnted virtual realitity course at the AP University College." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="VR Experience (ML-agents)" />
+  <meta property="og:title" content="Hoofdstuk 3 Obelix de menhirhouwer | VR Experience (ML-agents)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="VR Experience (ML-agents)" />
+  <meta name="twitter:title" content="Hoofdstuk 3 Obelix de menhirhouwer | VR Experience (ML-agents)" />
   
   <meta name="twitter:description" content="AI-augemnted virtual realitity course at the AP University College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="inleiding-tot-het-onderdeel-ml-agents.html"/>
+<link rel="prev" href="beginselen-ml-agents.html"/>
+<link rel="next" href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -220,60 +220,208 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">VR Experience (ML-agents)</h1>
-<p class="author"><em>34145/1928/2021/1/56<br>David D’Haese</em></p>
-<p class="date"><em>Gepubliceerd op 2020-10-16<br><img class='cover' src='img/cover.png' alt='spirogyra sp.'/><br>Spirogyra sp., Motic BA310</em></p>
+<div id="obelix-de-menhirhouwer" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 3</span> Obelix de menhirhouwer</h1>
+<div id="inleiding-tot-de-usecase" class="section level2">
+<h2><span class="header-section-number">3.1</span> Inleiding tot de usecase</h2>
+<p>Vele mensen kennen de verhalen van Asterix en Obelix. Hierin speelt Obelix de rol van een menhirhouwer met bovennatuurlijke krachten. Spijtig genoeg is hij nogal naïef en doet hij wel eens domme dingen. Laten we daar verandering in brengen door Obelix een brein te geven!</p>
+<div class="figure"><span id="fig:obelix"></span>
+<img src="img/Obelix.png" alt="Kunnen we Obelix de menhirhouwer een tikkeltje slimmer maken? bron afbeelding van Obelix." width="874" />
+<p class="caption">
+Figuur 3.1: Kunnen we Obelix de menhirhouwer een tikkeltje slimmer maken? <small><a href="https://asterix.fandom.com/fr/wiki/Ob%C3%A9lix">bron afbeelding van Obelix</a></small>.
+</p>
 </div>
-<div id="ml-agents" class="section level1 unnumbered">
-<h1>ML-Agents</h1>
-<p>In the course <em>VR Experience</em> the student is being submerged in VR- and 3D game development using the Unity engine. The student will learn to work with different camera perspectives, the physics engine, audio, light and scripting. In addition, using the ML-Agents toolkit, the student will learn to enrich applications with AI. The student will be able to train agents using artificial neural networks or other ML algorithms. This repository deal only with the latter part of the course, namely the the use of ML-agents as well as a basic introduction to ML.</p>
-<div id="language" class="section level2 unnumbered">
-<h2>Language</h2>
-<p>The course is in Dutch.</p>
+
 </div>
-<div id="license" class="section level2 unnumbered">
-<h2>License</h2>
-<p>The content of this project including its source code is licensed under the GNU Affero General Public v3.0 license.</p>
+<div id="het-spelverloop" class="section level2">
+<h2><span class="header-section-number">3.2</span> Het spelverloop</h2>
+<p>Het spelverloop wordt hieronder schematisch voorgesteld. Obelix is het hoofdpersonage en moet op zoek naar vrije menhirs. Aangekomen bij een menhir moet hij deze op zijn rug nemen en op zoek gaan naar een bestemming.</p>
+<div class="figure"><span id="fig:spelverloop"></span>
+<img src="img/spelverloop.png" alt="Het spelverloop hier uitgebeeld voor een enkele vrije, stilstaande menhir." width="804" />
+<p class="caption">
+Figuur 3.2: Het spelverloop hier uitgebeeld voor een enkele vrije, stilstaande menhir.
+</p>
+</div>
+
+</div>
+<div id="observaties-acties-en-beloning" class="section level2">
+<h2><span class="header-section-number">3.3</span> Observaties, acties en beloning</h2>
+<p>Er zijn drie zaken waarover je bij een conditionering altijd eerst rustig moet nadenken alvorens als een gek te beginnen ontwikkelen of ontwerpen: <em>observaties</em>, <em>acties</em> en <em>beloning</em>.</p>
+
+<div class="definition">
+<span id="def:obervaties" class="definition"><strong>Stelling 3.1  (Observaties)  </strong></span>Observaties die de agent maakt op basis van de omgeving vormen de invoer voor het leeralgoritme.
+</div>
+
+<p>In het geval van Obelix zijn de observaties diegene die hij maakt door rond te ‘kijken’. We gaan zien dat ML-Agents ons hierbij helpt door componenten aan te bieden voor visuele perceptie.</p>
+
+<div class="definition">
+<span id="def:acties" class="definition"><strong>Stelling 3.2  (Acties)  </strong></span>Acties bepalen de bewegingsvrijheid van een agent of, algemener gesteld, de impact die een agent heeft op zijn omgeving.
+</div>
+
+<p>Zolang de agent niet veranderd in geen enkel van zijn eigenschappen (positie, snelheid, kleur, tags,…) dan kan het leeralgoritme daar niets mee, want wat het ook voorstelt als te ondernemen actie, er gebeurt toch niets. Voor Obelix is het al duidelijk geworden dat hij moet kunnen rondkijken om ervoor te zorgen dat er een menhir of bestemming in het gezichtsveld treedt. Verder moet hij kunnen ‘rondlopen’ zodat hij een menhir of bestemming kan benaderen. Als we er van uitgaan dat het opnemen van de menhir en daarna het lossen van de menhir op een bestemming volautomatisch gebeurt (i.e. hij moet er gewoon maar mee botsen) dan zijn er geen verdere acties die Obelix moeten kunnen ondernemen. De details van het roteren en het rondlopen bespreken we later.</p>
+
+<div class="definition">
+<span id="def:beloning" class="definition"><strong>Stelling 3.3  (Beloning)  </strong></span>Het beloningsmechanisme (eng: <em>rewards</em>, <em>incentives</em>) vertelt het leeralgoritme of de voorgestelde actie de agent dichter bij het einddoel van de leeroefening brengt of niet.
+</div>
+
+<p>Figuur <a href="obelix-de-menhirhouwer.html#fig:obelix-beloning">3.3</a> geeft een overzicht van het beloningssysteem voor de Obelix simulatie. Het einddoel is het plaatsen van de menhir op een bestemming en dus daar krijgt het leeralgoritme de grootste score voor. Voor het naderen van een menhir of een bestemming krijgt de agent enkel een (matige) beloning indien het zich in de juiste staat bevindt. Bijvoorbeeld, als Obelix al een steen op zijn rug draagt, krijgt hij geen extra punten om een andere menhir te benaderen, want twee menhirs op de rug is misschien toch wat veel van het goede (in deze versie, natuurlijk kan je dit aanpassen).</p>
+<div class="figure"><span id="fig:obelix-beloning"></span>
+<img src="img/obelix-beloning.svg" alt="Het beloningssysteem voor de Obelix-simulatie."  />
+<p class="caption">
+Figuur 3.3: Het beloningssysteem voor de Obelix-simulatie.
+</p>
+</div>
+
+</div>
+<div id="het-speelveld" class="section level2">
+<h2><span class="header-section-number">3.4</span> Het speelveld</h2>
+<p>Laten we beginnen met alle componenten te bouwen om de simulatie te bouwen. Merk op dat het verstandig is om eerst de ML logica in te bouwen alvorens je de spelobjecten tot in het detail uitwerkt. Dat is ook wat we hier gaan doen.</p>
+<div class="figure"><span id="fig:speelveld"></span>
+<img src="img/Speelveld.png" alt="Het speelveld met 5 spelobjecten." width="695" />
+<p class="caption">
+Figuur 3.4: Het speelveld met 5 spelobjecten.
+</p>
+</div>
+
+</div>
+<div id="spelomgeving" class="section level2">
+<h2><span class="header-section-number">3.5</span> Spelomgeving</h2>
+<div id="speelveld-object" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> Speelveld object</h3>
+<p>Het speelveld krijgt de naam <code>Henge</code> en is een eenvoudig vlak met schaal X = Y = Z = 2 en posities en rotatie op X = Y = Z = 0 en met een <em>Mesh Collider</em>. Dit en alle andere objecten zitten vervat in een container object <code>Environment</code> zodat het geheel later eenvoudig gedupliceerd kan worden.</p>
+<div class="figure"><span id="fig:objecten"></span>
+<img src="img/objecten.png" alt="De volledige hiërarchie binnen de spelobjecten met hun namen zoals ze in deze handleiding gebruikt zullen worden. Merk op dat de Menhir en Destination objecten als prefab zullen worden gedefinieerd zodat men hier meerdere instanties van kan genereren (eng: to spawn) tijdens de initialisatie van de simulatie." width="129" />
+<p class="caption">
+Figuur 3.5: De volledige hiërarchie binnen de spelobjecten met hun namen zoals ze in deze handleiding gebruikt zullen worden. Merk op dat de <code>Menhir</code> en <code>Destination</code> objecten als prefab zullen worden gedefinieerd zodat men hier meerdere instanties van kan genereren (eng: <em>to spawn</em>) tijdens de initialisatie van de simulatie.
+</p>
+</div>
+
+</div>
+<div id="obelix-spelobject" class="section level3">
+<h3><span class="header-section-number">3.5.2</span> Obelix spelobject</h3>
+<div class="figure"><span id="fig:obelix-object"></span>
+<img src="img/obelix-object.png" alt="Obelix spelobject. Zie tekst voor de eigenschappen van dit object." width="246" />
+<p class="caption">
+Figuur 3.6: Obelix spelobject. Zie tekst voor de eigenschappen van dit object.
+</p>
+</div>
+
+<p>Dit is het enige composiet spelobject met het cilindrisch lichaam <code>Obelix</code>, een rechteroog (<code>RightEye</code>), een linkeroog (<code>LeftEye</code>) en een neus (<code>Nose</code>). Het lichaam zelf is een capsule met schaal 1 in alle richtingen. Het bevat een passende <em>Capsule collider</em> en een <em>Rigid body</em> component met de rotatie-vrijheid beperkt tot enkel de y-as (dus <em>freeze rotation</em> X en Z aangevinkt). De ogen en de neus worden als dochter-componenten van het lichaam aangemaakt en bestaan uit bollen, respectievelijk een capsule, telkens met hun gepaste en aansluitende collider. Zorg dat het composiet object voldoende boven de grond is (y = 1.5) zodat hij netjes op het speelveld valt.</p>
+<p>De acties die Obelix gaat doen zijn gebaseerd op observaties. Zorg er dan ook voor dat beide ogen van Obelix kunnen ‘zien’ door aan beide ogen een <em>Ray Perception Sensor 3D</em> toe te voegen met de volgende eigenschappen (hier voor het links oog weergegeven).</p>
 <table>
 <thead>
 <tr class="header">
-<th>You are allowed to…</th>
-<th>Under the conditions…</th>
-<th>You are <em>not</em> allowed to…</th>
+<th>Eigenschap</th>
+<th>Waarde</th>
+<th>Uitleg</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span title="The licensed material and derivatives may be used for commercial purposes.">Commercial use</span></td>
-<td><span title="Source code must be made available when the licensed material is distributed.">Disclose source</span></td>
-<td><span title="This license includes a limitation of liability.">Liability</span></td>
+<td><code>Sensor Name</code></td>
+<td><code>LeftEye</code></td>
+<td>Unieke naam is belangrijk</td>
 </tr>
 <tr class="even">
-<td><span title="The licensed material may be distributed.">Distribution</span></td>
-<td><span title="A copy of the license and copyright notice must be included with the licensed material.">License and copyright notice</span></td>
-<td><span title="This license explicitly states that it does NOT provide any warranty.">Warranty</span></td>
+<td><code>Detecable Tag</code>s</td>
+<td><code>Menhir</code> en <code>Destination</code></td>
+<td>De objecten die Obelix kan zien</td>
 </tr>
 <tr class="odd">
-<td><span title="The licensed material may be modified.">Modification</span></td>
-<td><span title="Users who interact with the licensed material via network are given the right to receive a copy of the source code.">Network use is distribution</span></td>
-<td></td>
+<td><code>Rays Per Direction</code></td>
+<td>6</td>
+<td>Aantal stralen aan weerszijden van middellijn.</td>
 </tr>
 <tr class="even">
-<td><span title="This license provides an express grant of patent rights from contributors.">Patent use</span></td>
-<td><span title="Modifications must be released under the same license when distributing the licensed material. In some cases a similar or related license may be used.">Same license</span></td>
-<td></td>
+<td><code>Max Ray Degrees</code></td>
+<td>30</td>
+<td>Voor een zicht van 60° per oog.</td>
 </tr>
 <tr class="odd">
-<td><span title="The licensed material may be used and modified in private.">Private use</span></td>
-<td><span title="Changes made to the licensed material must be documented.">State changes</span></td>
-<td></td>
+<td><code>Sphere Cast Radius</code></td>
+<td>3.5</td>
+<td>De dikte van elke straal</td>
+</tr>
+<tr class="even">
+<td><code>Ray Length</code></td>
+<td>260</td>
+<td>Lengte van de stralen in <em>dm</em></td>
+</tr>
+<tr class="odd">
+<td><code>Stacked Raycasts</code></td>
+<td>1</td>
+<td>Geheugen voor de sensor</td>
+</tr>
+<tr class="even">
+<td><code>Start</code>/<code>End Vertical Offset</code></td>
+<td>0/0</td>
+<td>Naar boven of naar onder kijken</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<p><small>© 2020 David D’Haese</small></p>
+<p>Obelix krijgt dus een zicht van 120°. Hij zal zich dus moeten draaien om een volledig beeld te krijgen van zijn omgeving. De lengte van de stralen is zodanig gekozen dat hij van de ene hoek van het speelveld nog net een object in de tegenoverstaande hoek kan zien.</p>
+<p>Doe hetzelfde voor het rechteroog (je kan de component eenvoudig kopiëren). Roteer nu de ogen +/-30° volgens de Y-as zoals getoond op Figuur <a href="obelix-de-menhirhouwer.html#fig:obelix-ray-perception">3.7</a> zodat er een zo breed mogelijk gezichtsveld benut wordt (dus geen overlap).</p>
+<div class="figure"><span id="fig:obelix-ray-perception"></span>
+<img src="img/obelix-ray-perception.png" alt="De Ray Perception Sensor 3D component in actie." width="692" />
+<p class="caption">
+Figuur 3.7: De <em>Ray Perception Sensor 3D</em> component in actie.
+</p>
+</div>
 
+<blockquote>
+<p>Er zijn ook andere componenten die van de betrokken <code>ISensor</code> interface overerven, namelijk <code>CameraSensorComponent</code> waarmee camerabeelden als pixel-matrices aan het NN worden doorgegeven of <code>RenderTextureSensorComponent</code> die de inhoude van zogenaamde <a href="https://docs.unity3d.com/Manual/class-RenderTexture.html"><em>Render Textures</em></a> als invoer gebruikt voor het NN.</p>
+</blockquote>
+<p>Voeg verder twee componenten toe aan Obelix: <em>Behavior Parameters</em> (het gedrag van de agent) en <em>Decision Requester</em>. (een automatische trigger om de agent te dwingen iets te doen). We zullen deze componenten waar nodig gaandeweg configureren.</p>
+<p><img src="img/agent-componenten.png" /></p>
+</div>
+<div id="de-menhir-en-de-bestemming" class="section level3">
+<h3><span class="header-section-number">3.5.3</span> De menhir en de bestemming</h3>
+<p>De menhir en de bestemming prefabs worden eenvoudig geconstrueerd als kubussen met schaal {XYZ: 0.5, 2, 0.5} met een passende <em>Box Collider</em>. De verschillen tussen de <code>Menhir</code> prefab en de <code>Destination</code> prefab staan hieronder opgesomd:</p>
+<div class="figure"><span id="fig:menhir-object"></span>
+<img src="img/menhir-object.png" alt="De menhir bestaat uit een eenvoudige balk." width="171" />
+<p class="caption">
+Figuur 3.8: De menhir bestaat uit een eenvoudige balk.
+</p>
+</div>
+
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Eigenschap</th>
+<th>Menhir</th>
+<th>Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Rigidbody</code> component</td>
+<td><code>Use Gravity</code> aan en <code>Freeze Rotation</code> voor de assen X en Y</td>
+<td>Geen <code>Rigidbody</code> component.</td>
+</tr>
+<tr class="even">
+<td>Startpositie (Y)</td>
+<td>Boven het veld, valt bij opstart tot op speelveld</td>
+<td>Rustend op het speelveld</td>
+</tr>
+<tr class="odd">
+<td>Tag</td>
+<td><code>Menhir</code></td>
+<td><code>Destination</code></td>
+</tr>
+</tbody>
+</table>
+<p>Je kan ze natuurlijk best ook met een verschillend materiaal bekleden zodat ze gemakkelijk te onderscheiden zijn.</p>
+</div>
+<div id="scorebord" class="section level3">
+<h3><span class="header-section-number">3.5.4</span> Scorebord</h3>
+<p>Dit object met naam <code>ScoreBoard</code> is een instantie van de <code>TextMeshPro</code> klasse dat de gecumuleerde beloning (eng: <em>cumulative reward</em>) zal weergeven. Hier wijzig je de eigenschappen naar keuze. Het is weliswaar handig als je de score kan lezen vanuit het perspectief van de <em>main camera</em>.</p>
+
+</div>
 </div>
 </div>
             </section>
@@ -281,8 +429,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-
-<a href="inleiding-tot-het-onderdeel-ml-agents.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="beginselen-ml-agents.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -312,7 +460,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ddhaese/vr-experience/index.Rmd",
+"link": "https://github.com/ddhaese/vr-experience/03_Obelix.Rmd",
 "text": "Bron"
 },
 "download": null,

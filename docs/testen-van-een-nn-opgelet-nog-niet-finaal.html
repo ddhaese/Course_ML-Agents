@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>VR Experience (ML-agents)</title>
+  <title>Hoofdstuk 7 Testen van een NN (Opgelet, nog niet finaal) | VR Experience (ML-agents)</title>
   <meta name="description" content="AI-augemnted virtual realitity course at the AP University College." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="VR Experience (ML-agents)" />
+  <meta property="og:title" content="Hoofdstuk 7 Testen van een NN (Opgelet, nog niet finaal) | VR Experience (ML-agents)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="VR Experience (ML-agents)" />
+  <meta name="twitter:title" content="Hoofdstuk 7 Testen van een NN (Opgelet, nog niet finaal) | VR Experience (ML-agents)" />
   
   <meta name="twitter:description" content="AI-augemnted virtual realitity course at the AP University College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="inleiding-tot-het-onderdeel-ml-agents.html"/>
+<link rel="prev" href="trainen-van-het-nn.html"/>
+<link rel="next" href="opdracht-opgelet-nog-niet-finaal.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,70 +52,6 @@
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
-<style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <link rel="stylesheet" href="css\course.css" type="text/css" />
 </head>
@@ -196,11 +132,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#start-de-training"><i class="fa fa-check"></i><b>6.2</b> Start de training</a></li>
 <li class="chapter" data-level="6.3" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#paralleliseren"><i class="fa fa-check"></i><b>6.3</b> Paralleliseren</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="testen-van-een-nn.html"><a href="testen-van-een-nn.html"><i class="fa fa-check"></i><b>7</b> Testen van een NN</a><ul>
-<li class="chapter" data-level="7.1" data-path="testen-van-een-nn.html"><a href="testen-van-een-nn.html#het-nn-bestand"><i class="fa fa-check"></i><b>7.1</b> Het nn-bestand</a></li>
-<li class="chapter" data-level="7.2" data-path="testen-van-een-nn.html"><a href="testen-van-een-nn.html#tensorboard"><i class="fa fa-check"></i><b>7.2</b> Tensorboard</a></li>
+<li class="chapter" data-level="7" data-path="testen-van-een-nn-opgelet-nog-niet-finaal.html"><a href="testen-van-een-nn-opgelet-nog-niet-finaal.html"><i class="fa fa-check"></i><b>7</b> Testen van een NN (Opgelet, nog niet finaal)</a><ul>
+<li class="chapter" data-level="7.1" data-path="testen-van-een-nn-opgelet-nog-niet-finaal.html"><a href="testen-van-een-nn-opgelet-nog-niet-finaal.html#tensorboard"><i class="fa fa-check"></i><b>7.1</b> Tensorboard</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="opdracht.html"><a href="opdracht.html"><i class="fa fa-check"></i><b>8</b> Opdracht</a></li>
+<li class="chapter" data-level="8" data-path="opdracht-opgelet-nog-niet-finaal.html"><a href="opdracht-opgelet-nog-niet-finaal.html"><i class="fa fa-check"></i><b>8</b> Opdracht (Opgelet, nog niet finaal)</a></li>
 <li class="chapter" data-level="9" data-path="zelf-een-eigen-intelligente-agent-creëren.html"><a href="zelf-een-eigen-intelligente-agent-creëren.html"><i class="fa fa-check"></i><b>9</b> Zelf een eigen intelligente agent creëren</a></li>
 <li class="chapter" data-level="" data-path="bronvermelding.html"><a href="bronvermelding.html"><i class="fa fa-check"></i>Bronvermelding</a></li>
 </ul>
@@ -220,60 +155,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">VR Experience (ML-agents)</h1>
-<p class="author"><em>34145/1928/2021/1/56<br>David D’Haese</em></p>
-<p class="date"><em>Gepubliceerd op 2020-10-16<br><img class='cover' src='img/cover.png' alt='spirogyra sp.'/><br>Spirogyra sp., Motic BA310</em></p>
-</div>
-<div id="ml-agents" class="section level1 unnumbered">
-<h1>ML-Agents</h1>
-<p>In the course <em>VR Experience</em> the student is being submerged in VR- and 3D game development using the Unity engine. The student will learn to work with different camera perspectives, the physics engine, audio, light and scripting. In addition, using the ML-Agents toolkit, the student will learn to enrich applications with AI. The student will be able to train agents using artificial neural networks or other ML algorithms. This repository deal only with the latter part of the course, namely the the use of ML-agents as well as a basic introduction to ML.</p>
-<div id="language" class="section level2 unnumbered">
-<h2>Language</h2>
-<p>The course is in Dutch.</p>
-</div>
-<div id="license" class="section level2 unnumbered">
-<h2>License</h2>
-<p>The content of this project including its source code is licensed under the GNU Affero General Public v3.0 license.</p>
-<table>
-<thead>
-<tr class="header">
-<th>You are allowed to…</th>
-<th>Under the conditions…</th>
-<th>You are <em>not</em> allowed to…</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span title="The licensed material and derivatives may be used for commercial purposes.">Commercial use</span></td>
-<td><span title="Source code must be made available when the licensed material is distributed.">Disclose source</span></td>
-<td><span title="This license includes a limitation of liability.">Liability</span></td>
-</tr>
-<tr class="even">
-<td><span title="The licensed material may be distributed.">Distribution</span></td>
-<td><span title="A copy of the license and copyright notice must be included with the licensed material.">License and copyright notice</span></td>
-<td><span title="This license explicitly states that it does NOT provide any warranty.">Warranty</span></td>
-</tr>
-<tr class="odd">
-<td><span title="The licensed material may be modified.">Modification</span></td>
-<td><span title="Users who interact with the licensed material via network are given the right to receive a copy of the source code.">Network use is distribution</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><span title="This license provides an express grant of patent rights from contributors.">Patent use</span></td>
-<td><span title="Modifications must be released under the same license when distributing the licensed material. In some cases a similar or related license may be used.">Same license</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><span title="The licensed material may be used and modified in private.">Private use</span></td>
-<td><span title="Changes made to the licensed material must be documented.">State changes</span></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<p><small>© 2020 David D’Haese</small></p>
-
+<div id="testen-van-een-nn-opgelet-nog-niet-finaal" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 7</span> Testen van een NN (Opgelet, nog niet finaal)</h1>
+<!-- TODO: Revision pending  -->
+<p>Het belangrijkste resultaat van de trainingsfase is een <code>*.nn</code>-bestand dat het model van het NN bevat. Het kan als bestand ge-dropped in het daarvoor bedoelde veld van de <em>Behavior Parameters</em>-component.</p>
+<div id="tensorboard" class="section level2">
+<h2><span class="header-section-number">7.1</span> Tensorboard</h2>
+<!-- TODO: Revision pending  -->
+<p>Je kan de training zolang laten lopen als je wil. Je stopt de training gewoon door nogmaals de ►-toets in te drukken. Tijdens de trainingsfase kan je het verloop van de gemiddelde geaccumuleerde beloning per episode volgen door middel van <em>Tensorboard</em>, een module van <em>Tensorflow</em> (zelfde sub-folder):</p>
+<pre class="cmd"><code>tensorboard --logdir results</code></pre>
+<p>In je browser ga je naar <code>http://localhost:6006</code> en je zou het dashboard moeten zien verschijnen:</p>
+<iframe width="100%" height="650px" src="img/TensorBoard-01.html" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" style="border:0px;">
+</iframe>
+<p>Meer informatie rond Tensorboard vind je <a href="https://www.tensorflow.org/tutorials">hier</a>.</p>
+<!-- TODO: Detailed explanation to follow  -->
 </div>
 </div>
             </section>
@@ -281,8 +176,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-
-<a href="inleiding-tot-het-onderdeel-ml-agents.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="trainen-van-het-nn.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="opdracht-opgelet-nog-niet-finaal.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -312,7 +207,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ddhaese/vr-experience/index.Rmd",
+"link": "https://github.com/ddhaese/vr-experience/07_Testen_NN.Rmd",
 "text": "Bron"
 },
 "download": null,
@@ -323,20 +218,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

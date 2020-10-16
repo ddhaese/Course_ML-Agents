@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>VR Experience (ML-agents)</title>
+  <title>Hoofdstuk 5 Testen van de spellogica | VR Experience (ML-agents)</title>
   <meta name="description" content="AI-augemnted virtual realitity course at the AP University College." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="VR Experience (ML-agents)" />
+  <meta property="og:title" content="Hoofdstuk 5 Testen van de spellogica | VR Experience (ML-agents)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="VR Experience (ML-agents)" />
+  <meta name="twitter:title" content="Hoofdstuk 5 Testen van de spellogica | VR Experience (ML-agents)" />
   
   <meta name="twitter:description" content="AI-augemnted virtual realitity course at the AP University College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="inleiding-tot-het-onderdeel-ml-agents.html"/>
+<link rel="prev" href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"/>
+<link rel="next" href="trainen-van-het-nn.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -220,69 +220,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">VR Experience (ML-agents)</h1>
-<p class="author"><em>34145/1928/2021/1/56<br>David D’Haese</em></p>
-<p class="date"><em>Gepubliceerd op 2020-10-16<br><img class='cover' src='img/cover.png' alt='spirogyra sp.'/><br>Spirogyra sp., Motic BA310</em></p>
-</div>
-<div id="ml-agents" class="section level1 unnumbered">
-<h1>ML-Agents</h1>
-<p>In the course <em>VR Experience</em> the student is being submerged in VR- and 3D game development using the Unity engine. The student will learn to work with different camera perspectives, the physics engine, audio, light and scripting. In addition, using the ML-Agents toolkit, the student will learn to enrich applications with AI. The student will be able to train agents using artificial neural networks or other ML algorithms. This repository deal only with the latter part of the course, namely the the use of ML-agents as well as a basic introduction to ML.</p>
-<div id="language" class="section level2 unnumbered">
-<h2>Language</h2>
-<p>The course is in Dutch.</p>
-</div>
-<div id="license" class="section level2 unnumbered">
-<h2>License</h2>
-<p>The content of this project including its source code is licensed under the GNU Affero General Public v3.0 license.</p>
-<table>
-<thead>
-<tr class="header">
-<th>You are allowed to…</th>
-<th>Under the conditions…</th>
-<th>You are <em>not</em> allowed to…</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span title="The licensed material and derivatives may be used for commercial purposes.">Commercial use</span></td>
-<td><span title="Source code must be made available when the licensed material is distributed.">Disclose source</span></td>
-<td><span title="This license includes a limitation of liability.">Liability</span></td>
-</tr>
-<tr class="even">
-<td><span title="The licensed material may be distributed.">Distribution</span></td>
-<td><span title="A copy of the license and copyright notice must be included with the licensed material.">License and copyright notice</span></td>
-<td><span title="This license explicitly states that it does NOT provide any warranty.">Warranty</span></td>
-</tr>
-<tr class="odd">
-<td><span title="The licensed material may be modified.">Modification</span></td>
-<td><span title="Users who interact with the licensed material via network are given the right to receive a copy of the source code.">Network use is distribution</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><span title="This license provides an express grant of patent rights from contributors.">Patent use</span></td>
-<td><span title="Modifications must be released under the same license when distributing the licensed material. In some cases a similar or related license may be used.">Same license</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><span title="The licensed material may be used and modified in private.">Private use</span></td>
-<td><span title="Changes made to the licensed material must be documented.">State changes</span></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<p><small>© 2020 David D’Haese</small></p>
+<div id="testen-van-de-spellogica" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 5</span> Testen van de spellogica</h1>
+<p>Je kan nu de spellogica beginnen testen door zelf Obelix voort te bewegen d.m.v. de pijltjestoetsen. Controleer het scorebord. Schakel tijdelijk de afstraffing voor het niets doen uit door de statement <code>AddReward(-0.001f);</code> in commentaar te plaatsen zodat je de tijd krijgt om te controleren dat de juiste beloning bij de juiste acties worden gegeven. Controleer ook eens een nieuwe episode gestart wordt indien Obelix van het speelveld valt of indien alle menhir op hun plaats zijn (je kan het aantal aanpassen).</p>
 
+<div class="definition">
+<span id="def:unnamed-chunk-6" class="definition"><strong>Stelling 5.1  (Eerst manueel testen)  </strong></span>Begin pas met de trainingsfase indien je 100% bent dat de spellogica helemaal goed zit.
 </div>
+
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="inleiding-tot-het-onderdeel-ml-agents.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="trainen-van-het-nn.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -312,7 +266,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ddhaese/vr-experience/index.Rmd",
+"link": "https://github.com/ddhaese/vr-experience/05_Testen_Spellogica.Rmd",
 "text": "Bron"
 },
 "download": null,

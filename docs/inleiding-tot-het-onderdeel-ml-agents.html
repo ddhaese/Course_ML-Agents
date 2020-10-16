@@ -52,6 +52,70 @@
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="css\course.css" type="text/css" />
 </head>
@@ -82,18 +146,63 @@
 <li class="chapter" data-level="2.2" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#installatie"><i class="fa fa-check"></i><b>2.2</b> Installatie</a></li>
 <li class="chapter" data-level="2.3" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#ml-agents-toolkit"><i class="fa fa-check"></i><b>2.3</b> ML-Agents Toolkit</a></li>
 <li class="chapter" data-level="2.4" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#machine-learning-in-een-notedop"><i class="fa fa-check"></i><b>2.4</b> Machine learning in een notedop</a></li>
-<li class="chapter" data-level="2.5" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#obelix-de-menhirhouwer"><i class="fa fa-check"></i><b>2.5</b> Obelix de menhirhouwer</a></li>
-<li class="chapter" data-level="2.6" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#het-spelverloop"><i class="fa fa-check"></i><b>2.6</b> Het spelverloop</a></li>
-<li class="chapter" data-level="2.7" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#observaties-acties-en-beloning"><i class="fa fa-check"></i><b>2.7</b> Observaties, acties en beloning</a></li>
-<li class="chapter" data-level="2.8" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#het-speelveld"><i class="fa fa-check"></i><b>2.8</b> Het speelveld</a></li>
-<li class="chapter" data-level="2.9" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#spelobjecten"><i class="fa fa-check"></i><b>2.9</b> Spelobjecten</a><ul>
-<li class="chapter" data-level="2.9.1" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#speelveld-object"><i class="fa fa-check"></i><b>2.9.1</b> Speelveld object</a></li>
-<li class="chapter" data-level="2.9.2" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#obelix-spelobject"><i class="fa fa-check"></i><b>2.9.2</b> Obelix spelobject</a></li>
-<li class="chapter" data-level="2.9.3" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#de-menhir-en-de-bestemming"><i class="fa fa-check"></i><b>2.9.3</b> De menhir en de bestemming</a></li>
-<li class="chapter" data-level="2.9.4" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#scorebord"><i class="fa fa-check"></i><b>2.9.4</b> Scorebord</a></li>
+<li class="chapter" data-level="2.5" data-path="beginselen-ml-agents.html"><a href="beginselen-ml-agents.html#interactie-tussen-het-nn-en-de-unity-omgeving"><i class="fa fa-check"></i><b>2.5</b> Interactie tussen het NN en de Unity omgeving</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="obelix-de-menhirhouwer.html"><a href="obelix-de-menhirhouwer.html"><i class="fa fa-check"></i><b>3</b> Obelix de menhirhouwer</a><ul>
+<li class="chapter" data-level="3.1" data-path="obelix-de-menhirhouwer.html"><a href="obelix-de-menhirhouwer.html#inleiding-tot-de-usecase"><i class="fa fa-check"></i><b>3.1</b> Inleiding tot de usecase</a></li>
+<li class="chapter" data-level="3.2" data-path="obelix-de-menhirhouwer.html"><a href="obelix-de-menhirhouwer.html#het-spelverloop"><i class="fa fa-check"></i><b>3.2</b> Het spelverloop</a></li>
+<li class="chapter" data-level="3.3" data-path="obelix-de-menhirhouwer.html"><a href="obelix-de-menhirhouwer.html#observaties-acties-en-beloning"><i class="fa fa-check"></i><b>3.3</b> Observaties, acties en beloning</a></li>
+<li class="chapter" data-level="3.4" data-path="obelix-de-menhirhouwer.html"><a href="obelix-de-menhirhouwer.html#het-speelveld"><i class="fa fa-check"></i><b>3.4</b> Het speelveld</a></li>
+<li class="chapter" data-level="3.5" data-path="obelix-de-menhirhouwer.html"><a href="obelix-de-menhirhouwer.html#spelomgeving"><i class="fa fa-check"></i><b>3.5</b> Spelomgeving</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="obelix-de-menhirhouwer.html"><a href="obelix-de-menhirhouwer.html#speelveld-object"><i class="fa fa-check"></i><b>3.5.1</b> Speelveld object</a></li>
+<li class="chapter" data-level="3.5.2" data-path="obelix-de-menhirhouwer.html"><a href="obelix-de-menhirhouwer.html#obelix-spelobject"><i class="fa fa-check"></i><b>3.5.2</b> Obelix spelobject</a></li>
+<li class="chapter" data-level="3.5.3" data-path="obelix-de-menhirhouwer.html"><a href="obelix-de-menhirhouwer.html#de-menhir-en-de-bestemming"><i class="fa fa-check"></i><b>3.5.3</b> De menhir en de bestemming</a></li>
+<li class="chapter" data-level="3.5.4" data-path="obelix-de-menhirhouwer.html"><a href="obelix-de-menhirhouwer.html#scorebord"><i class="fa fa-check"></i><b>3.5.4</b> Scorebord</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="ontwikkeling-van-een-brein.html"><a href="ontwikkeling-van-een-brein.html"><i class="fa fa-check"></i><b>3</b> Ontwikkeling van een brein</a></li>
+<li class="chapter" data-level="4" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><i class="fa fa-check"></i><b>4</b> Gedragingen van de agent en de andere spelobjecten</a><ul>
+<li class="chapter" data-level="4.1" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#environment.cs"><i class="fa fa-check"></i><b>4.1</b> Environment.cs</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#overzicht-methoden-op-environment"><i class="fa fa-check"></i><b>4.1.1</b> Overzicht methoden op Environment</a></li>
+<li class="chapter" data-level="4.1.2" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#object-variabelen-op-environment"><i class="fa fa-check"></i><b>4.1.2</b> Object-variabelen op Environment</a></li>
+<li class="chapter" data-level="4.1.3" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#initializatie-van-environment-instantie"><i class="fa fa-check"></i><b>4.1.3</b> Initializatie van Environment instantie</a></li>
+<li class="chapter" data-level="4.1.4" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#opkuisen-speelveld"><i class="fa fa-check"></i><b>4.1.4</b> Opkuisen speelveld</a></li>
+<li class="chapter" data-level="4.1.5" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#score"><i class="fa fa-check"></i><b>4.1.5</b> Score</a></li>
+<li class="chapter" data-level="4.1.6" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#willekeurige-positie"><i class="fa fa-check"></i><b>4.1.6</b> Willekeurige positie</a></li>
+<li class="chapter" data-level="4.1.7" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#genereren-van-een-stonehenge"><i class="fa fa-check"></i><b>4.1.7</b> Genereren van een Stonehenge</a></li>
+<li class="chapter" data-level="4.1.8" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#dynamisch-genereren-van-menhirs"><i class="fa fa-check"></i><b>4.1.8</b> Dynamisch genereren van menhirs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#destination.cs"><i class="fa fa-check"></i><b>4.2</b> Destination.cs</a></li>
+<li class="chapter" data-level="4.3" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#obelix.cs"><i class="fa fa-check"></i><b>4.3</b> Obelix.cs</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#overzicht-methoden"><i class="fa fa-check"></i><b>4.3.1</b> Overzicht methoden</a></li>
+<li class="chapter" data-level="4.3.2" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#objectvariabelen"><i class="fa fa-check"></i><b>4.3.2</b> Objectvariabelen</a></li>
+<li class="chapter" data-level="4.3.3" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#initialize"><i class="fa fa-check"></i><b>4.3.3</b> Initialize</a></li>
+<li class="chapter" data-level="4.3.4" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#onepisodebegin"><i class="fa fa-check"></i><b>4.3.4</b> OnEpisodeBegin</a></li>
+<li class="chapter" data-level="4.3.5" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#collectobservations"><i class="fa fa-check"></i><b>4.3.5</b> CollectObservations</a></li>
+<li class="chapter" data-level="4.3.6" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#heuristic"><i class="fa fa-check"></i><b>4.3.6</b> Heuristic</a></li>
+<li class="chapter" data-level="4.3.7" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#onactionreceived"><i class="fa fa-check"></i><b>4.3.7</b> OnActionReceived</a></li>
+<li class="chapter" data-level="4.3.8" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#oncollisionenter"><i class="fa fa-check"></i><b>4.3.8</b> OnCollisionEnter</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="gedragingen-van-de-agent-en-de-andere-spelobjecten.html"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#menhir.cs"><i class="fa fa-check"></i><b>4.4</b> Menhir.cs</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="testen-van-de-spellogica.html"><a href="testen-van-de-spellogica.html"><i class="fa fa-check"></i><b>5</b> Testen van de spellogica</a></li>
+<li class="chapter" data-level="6" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html"><i class="fa fa-check"></i><b>6</b> Trainen van het NN</a><ul>
+<li class="chapter" data-level="6.1" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#configuratie-van-het-nn"><i class="fa fa-check"></i><b>6.1</b> Configuratie van het NN</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#trainer-type"><i class="fa fa-check"></i><b>6.1.1</b> Trainer-type</a></li>
+<li class="chapter" data-level="6.1.2" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#hyperparameters"><i class="fa fa-check"></i><b>6.1.2</b> Hyperparameters</a></li>
+<li class="chapter" data-level="6.1.3" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#architectuur-van-het-nn"><i class="fa fa-check"></i><b>6.1.3</b> Architectuur van het NN</a></li>
+<li class="chapter" data-level="6.1.4" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#beloningsysteem"><i class="fa fa-check"></i><b>6.1.4</b> Beloningsysteem</a></li>
+<li class="chapter" data-level="6.1.5" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#extra-informatie-rond-configuratie"><i class="fa fa-check"></i><b>6.1.5</b> Extra informatie rond configuratie</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#start-de-training"><i class="fa fa-check"></i><b>6.2</b> Start de training</a></li>
+<li class="chapter" data-level="6.3" data-path="trainen-van-het-nn.html"><a href="trainen-van-het-nn.html#paralleliseren"><i class="fa fa-check"></i><b>6.3</b> Paralleliseren</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="testen-van-een-nn.html"><a href="testen-van-een-nn.html"><i class="fa fa-check"></i><b>7</b> Testen van een NN</a><ul>
+<li class="chapter" data-level="7.1" data-path="testen-van-een-nn.html"><a href="testen-van-een-nn.html#het-nn-bestand"><i class="fa fa-check"></i><b>7.1</b> Het nn-bestand</a></li>
+<li class="chapter" data-level="7.2" data-path="testen-van-een-nn.html"><a href="testen-van-een-nn.html#tensorboard"><i class="fa fa-check"></i><b>7.2</b> Tensorboard</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="opdracht.html"><a href="opdracht.html"><i class="fa fa-check"></i><b>8</b> Opdracht</a></li>
+<li class="chapter" data-level="9" data-path="zelf-een-eigen-intelligente-agent-creëren.html"><a href="zelf-een-eigen-intelligente-agent-creëren.html"><i class="fa fa-check"></i><b>9</b> Zelf een eigen intelligente agent creëren</a></li>
+<li class="chapter" data-level="" data-path="bronvermelding.html"><a href="bronvermelding.html"><i class="fa fa-check"></i>Bronvermelding</a></li>
 </ul>
 
       </nav>
@@ -223,7 +332,7 @@ Figuur 1.1: Werking van Markdown. De platte tekst (links) wordt omgezet naar een
 
 </div>
 </div>
-<h3> Ontwikkeling van een brein</h3>
+<h3>Bronvermelding</h3>
 <div id="refs" class="references">
 <div id="ref-mandelbrotjulia">
 <p>Li, C., 2017. Improve r’s performance using juliacall with mandelbrot set example [WWW Document] <em>[Online; accessed 2020-09-14]</em>. URL <a href="https://github.com/Non-Contradiction/JuliaCall/tree/master/example/mandelbrot">https://github.com/Non-Contradiction/JuliaCall/tree/master/example/mandelbrot</a></p>
@@ -276,6 +385,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
