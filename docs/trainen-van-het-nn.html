@@ -224,14 +224,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="configuratie-van-het-nn" class="section level2">
 <h2><span class="header-section-number">6.1</span> Configuratie van het NN</h2>
 <p>Configuratie van het NN en de Python-Unity interface gebeurt hier d.m.v. een yaml-bestand (cheatsheet <a href="https://lzone.de/cheat-sheet/YAML">hier</a>). Maak daarom een nieuw bestand aan met de naam <code>Obelix-01.yml</code>. We beginnen met aan te geven dat de configuratie geldt voor de Obelix agent:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="trainen-van-het-nn.html#cb1-1"></a><span class="fu">behaviors</span><span class="kw">:</span></span>
-<span id="cb1-2"><a href="trainen-van-het-nn.html#cb1-2"></a><span class="at">  </span><span class="fu">Obelix</span><span class="kw">:</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb20-1"><a href="trainen-van-het-nn.html#cb20-1"></a><span class="fu">behaviors</span><span class="kw">:</span></span>
+<span id="cb20-2"><a href="trainen-van-het-nn.html#cb20-2"></a><span class="at">  </span><span class="fu">Obelix</span><span class="kw">:</span></span></code></pre></div>
 <p>Opgelet: De naam <code>Obelix</code> moet overeenkomen met de <em>Behavior Name</em>.</p>
 <p>Je kan in het configuratiebestand meerdere gedragingen toevoegen, waarbij een gedrag overeenkomt met type agent en met een NN.</p>
 <div id="trainer-type" class="section level3">
 <h3><span class="header-section-number">6.1.1</span> Trainer-type</h3>
 <p>De eerste configuratie-parameter is</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="trainen-van-het-nn.html#cb2-1"></a><span class="at">    </span><span class="fu">trainer_type</span><span class="kw">:</span><span class="at"> ppo</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb21-1"><a href="trainen-van-het-nn.html#cb21-1"></a><span class="at">    </span><span class="fu">trainer_type</span><span class="kw">:</span><span class="at"> ppo</span></span></code></pre></div>
 <p>Hiermee bepaal je het type conditioneringsalgoritme en meteen ook een groot aantal andere confirguratieparameters. De mogelijkheden zijn:</p>
 <ul>
 <li><code>ppo</code>: <em>Proximal Policy Optimization</em> Dit algoritme zal trachten niet te ver af te wijken van de vorige set van voorgestelde acties (eng: <em>policy</em>) door een vorm van regularisatie toe te passen</li>
@@ -241,21 +241,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="hyperparameters" class="section level3">
 <h3><span class="header-section-number">6.1.2</span> Hyperparameters</h3>
 <p>Hieronder de hyperparameters op het leeralgoritme:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb3-1"><a href="trainen-van-het-nn.html#cb3-1"></a><span class="at">    </span><span class="fu">max_steps</span><span class="kw">:</span><span class="at"> </span><span class="fl">5.0e5</span></span>
-<span id="cb3-2"><a href="trainen-van-het-nn.html#cb3-2"></a><span class="at">    </span><span class="fu">time_horizon</span><span class="kw">:</span><span class="at"> </span><span class="dv">64</span></span>
-<span id="cb3-3"><a href="trainen-van-het-nn.html#cb3-3"></a><span class="at">    </span><span class="fu">summary_freq</span><span class="kw">:</span><span class="at"> </span><span class="dv">10000</span></span>
-<span id="cb3-4"><a href="trainen-van-het-nn.html#cb3-4"></a><span class="at">    </span><span class="fu">keep_checkpoints</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
-<span id="cb3-5"><a href="trainen-van-het-nn.html#cb3-5"></a><span class="at">    </span><span class="fu">checkpoint_interval</span><span class="kw">:</span><span class="at"> </span><span class="dv">50000</span></span>
-<span id="cb3-6"><a href="trainen-van-het-nn.html#cb3-6"></a><span class="at">    </span></span>
-<span id="cb3-7"><a href="trainen-van-het-nn.html#cb3-7"></a><span class="at">    </span><span class="fu">hyperparameters</span><span class="kw">:</span></span>
-<span id="cb3-8"><a href="trainen-van-het-nn.html#cb3-8"></a><span class="at">      </span><span class="fu">batch_size</span><span class="kw">:</span><span class="at"> </span><span class="dv">64</span></span>
-<span id="cb3-9"><a href="trainen-van-het-nn.html#cb3-9"></a><span class="at">      </span><span class="fu">buffer_size</span><span class="kw">:</span><span class="at"> </span><span class="dv">9600</span></span>
-<span id="cb3-10"><a href="trainen-van-het-nn.html#cb3-10"></a><span class="at">      </span><span class="fu">learning_rate</span><span class="kw">:</span><span class="at"> </span><span class="fl">3.0e-4</span></span>
-<span id="cb3-11"><a href="trainen-van-het-nn.html#cb3-11"></a><span class="at">      </span><span class="fu">learning_rate_schedule</span><span class="kw">:</span><span class="at"> constant</span></span>
-<span id="cb3-12"><a href="trainen-van-het-nn.html#cb3-12"></a><span class="at">      </span><span class="fu">beta</span><span class="kw">:</span><span class="at"> </span><span class="fl">5.0e-3</span></span>
-<span id="cb3-13"><a href="trainen-van-het-nn.html#cb3-13"></a><span class="at">      </span><span class="fu">epsilon</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.2</span></span>
-<span id="cb3-14"><a href="trainen-van-het-nn.html#cb3-14"></a><span class="at">      </span><span class="fu">lambd</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.95</span></span>
-<span id="cb3-15"><a href="trainen-van-het-nn.html#cb3-15"></a><span class="at">      </span><span class="fu">num_epoch</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb22-1"><a href="trainen-van-het-nn.html#cb22-1"></a><span class="at">    </span><span class="fu">max_steps</span><span class="kw">:</span><span class="at"> </span><span class="fl">5.0e5</span></span>
+<span id="cb22-2"><a href="trainen-van-het-nn.html#cb22-2"></a><span class="at">    </span><span class="fu">time_horizon</span><span class="kw">:</span><span class="at"> </span><span class="dv">64</span></span>
+<span id="cb22-3"><a href="trainen-van-het-nn.html#cb22-3"></a><span class="at">    </span><span class="fu">summary_freq</span><span class="kw">:</span><span class="at"> </span><span class="dv">10000</span></span>
+<span id="cb22-4"><a href="trainen-van-het-nn.html#cb22-4"></a><span class="at">    </span><span class="fu">keep_checkpoints</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb22-5"><a href="trainen-van-het-nn.html#cb22-5"></a><span class="at">    </span><span class="fu">checkpoint_interval</span><span class="kw">:</span><span class="at"> </span><span class="dv">50000</span></span>
+<span id="cb22-6"><a href="trainen-van-het-nn.html#cb22-6"></a><span class="at">    </span></span>
+<span id="cb22-7"><a href="trainen-van-het-nn.html#cb22-7"></a><span class="at">    </span><span class="fu">hyperparameters</span><span class="kw">:</span></span>
+<span id="cb22-8"><a href="trainen-van-het-nn.html#cb22-8"></a><span class="at">      </span><span class="fu">batch_size</span><span class="kw">:</span><span class="at"> </span><span class="dv">64</span></span>
+<span id="cb22-9"><a href="trainen-van-het-nn.html#cb22-9"></a><span class="at">      </span><span class="fu">buffer_size</span><span class="kw">:</span><span class="at"> </span><span class="dv">9600</span></span>
+<span id="cb22-10"><a href="trainen-van-het-nn.html#cb22-10"></a><span class="at">      </span><span class="fu">learning_rate</span><span class="kw">:</span><span class="at"> </span><span class="fl">3.0e-4</span></span>
+<span id="cb22-11"><a href="trainen-van-het-nn.html#cb22-11"></a><span class="at">      </span><span class="fu">learning_rate_schedule</span><span class="kw">:</span><span class="at"> constant</span></span>
+<span id="cb22-12"><a href="trainen-van-het-nn.html#cb22-12"></a><span class="at">      </span><span class="fu">beta</span><span class="kw">:</span><span class="at"> </span><span class="fl">5.0e-3</span></span>
+<span id="cb22-13"><a href="trainen-van-het-nn.html#cb22-13"></a><span class="at">      </span><span class="fu">epsilon</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.2</span></span>
+<span id="cb22-14"><a href="trainen-van-het-nn.html#cb22-14"></a><span class="at">      </span><span class="fu">lambd</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.95</span></span>
+<span id="cb22-15"><a href="trainen-van-het-nn.html#cb22-15"></a><span class="at">      </span><span class="fu">num_epoch</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span></code></pre></div>
 <ul>
 <li><code>max_steps</code>: totaal maximum aantal stappen de simulatie mag doorlopen gedurende de ganse trainingsfase</li>
 <li><code>time_horizon</code>: aantal ervaringen samen te nemen alvorens deze naar de ervaringsbuffer te sturen. Een set van observaties samen met de status waarin de agent zich bevindt, dus een input-rij voor het NN, noemt men de ervaring (eng: <em>experience</em>).</li>
@@ -275,32 +275,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="architectuur-van-het-nn" class="section level3">
 <h3><span class="header-section-number">6.1.3</span> Architectuur van het NN</h3>
 <p>Hieronder vind je de configuratie van de architectuur van het NN dat gekoppeld wordt met de Obelix agent:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="trainen-van-het-nn.html#cb4-1"></a><span class="at">    </span><span class="fu">network_settings</span><span class="kw">:</span></span>
-<span id="cb4-2"><a href="trainen-van-het-nn.html#cb4-2"></a><span class="at">      </span><span class="fu">num_layers</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
-<span id="cb4-3"><a href="trainen-van-het-nn.html#cb4-3"></a><span class="at">      </span><span class="fu">hidden_units</span><span class="kw">:</span><span class="at"> </span><span class="dv">128</span></span>
-<span id="cb4-4"><a href="trainen-van-het-nn.html#cb4-4"></a><span class="at">      </span><span class="fu">normalize</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb23-1"><a href="trainen-van-het-nn.html#cb23-1"></a><span class="at">    </span><span class="fu">network_settings</span><span class="kw">:</span></span>
+<span id="cb23-2"><a href="trainen-van-het-nn.html#cb23-2"></a><span class="at">      </span><span class="fu">num_layers</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb23-3"><a href="trainen-van-het-nn.html#cb23-3"></a><span class="at">      </span><span class="fu">hidden_units</span><span class="kw">:</span><span class="at"> </span><span class="dv">128</span></span>
+<span id="cb23-4"><a href="trainen-van-het-nn.html#cb23-4"></a><span class="at">      </span><span class="fu">normalize</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code></pre></div>
 <ul>
 <li><code>num_layers</code>: Het aantal verborgen lagen van het NN, dus exclusief de invoer en uitvoer laag</li>
 <li><code>hidden_units</code>: Het aantal neuronen of nodes per verborgen laag in het NN. Samen met <code>num_layers</code> bepaald dit de grootte van het artificieel brein.</li>
 <li><code>normalize</code>: Moet eigenlijk <a href="https://en.wikipedia.org/wiki/Standard_score"><em>standardize</em></a> heten en kan belangrijk zijn wanneer men acties d.m.v. <a href="https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/random-variables-discrete/v/discrete-and-continuous-random-variables">continue variabelen</a> codeert.</li>
 </ul>
 <p>Als je aan je eigen agent gaat werken, moet je ook nadenken of er geheugen nodig is. Zo ja, dan kan je dit op deze manier coderen, binnen het onderdeel <code>network_settings</code> (zie <a href="trainen-van-het-nn.html#extra-informatie-rond-configuratie">hieronder</a> voor links naar online documentatie hierrond):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="trainen-van-het-nn.html#cb5-1"></a><span class="at">      </span><span class="fu">memory</span><span class="kw">:</span></span>
-<span id="cb5-2"><a href="trainen-van-het-nn.html#cb5-2"></a><span class="at">        </span><span class="fu">sequence_length</span><span class="kw">:</span><span class="at"> </span><span class="dv">64</span></span>
-<span id="cb5-3"><a href="trainen-van-het-nn.html#cb5-3"></a><span class="at">        </span><span class="fu">memory_size</span><span class="kw">:</span><span class="at"> </span><span class="dv">256</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb24-1"><a href="trainen-van-het-nn.html#cb24-1"></a><span class="at">      </span><span class="fu">memory</span><span class="kw">:</span></span>
+<span id="cb24-2"><a href="trainen-van-het-nn.html#cb24-2"></a><span class="at">        </span><span class="fu">sequence_length</span><span class="kw">:</span><span class="at"> </span><span class="dv">64</span></span>
+<span id="cb24-3"><a href="trainen-van-het-nn.html#cb24-3"></a><span class="at">        </span><span class="fu">memory_size</span><span class="kw">:</span><span class="at"> </span><span class="dv">256</span></span></code></pre></div>
 </div>
 <div id="beloningsysteem" class="section level3">
 <h3><span class="header-section-number">6.1.4</span> Beloningsysteem</h3>
 <p>Het einddoel van het NN is om een beleid te vinden dat de beloning zo groot mogelijk maakt. De beloningen die in <code>Obelix.cs</code> bepaald werden, noemt men de extrinsieke beloningen (eng: <em>extrinsic rewards</em>) omdat ze door de Unity Agent en niet door het leeralgoritme zelf worden bepaald. Daarnaast kan men nog een aantal intrinsieke beloningen definiëren. Uiteindelijk zal het leeralgoritme een mix van extrinsieke en intrinsieke beloningen gebruiken.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="trainen-van-het-nn.html#cb6-1"></a><span class="at">    </span><span class="fu">reward_signals</span><span class="kw">:</span></span>
-<span id="cb6-2"><a href="trainen-van-het-nn.html#cb6-2"></a><span class="at">      </span><span class="fu">extrinsic</span><span class="kw">:</span></span>
-<span id="cb6-3"><a href="trainen-van-het-nn.html#cb6-3"></a><span class="at">        </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.0</span></span>
-<span id="cb6-4"><a href="trainen-van-het-nn.html#cb6-4"></a><span class="at">        </span><span class="fu">gamma</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.99</span></span>
-<span id="cb6-5"><a href="trainen-van-het-nn.html#cb6-5"></a><span class="at">      </span><span class="fu">curiosity</span><span class="kw">:</span></span>
-<span id="cb6-6"><a href="trainen-van-het-nn.html#cb6-6"></a><span class="at">        </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.02</span></span>
-<span id="cb6-7"><a href="trainen-van-het-nn.html#cb6-7"></a><span class="at">        </span><span class="fu">gamma</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.99</span></span>
-<span id="cb6-8"><a href="trainen-van-het-nn.html#cb6-8"></a><span class="at">        </span><span class="fu">encoding_size</span><span class="kw">:</span><span class="at"> </span><span class="dv">256</span></span>
-<span id="cb6-9"><a href="trainen-van-het-nn.html#cb6-9"></a><span class="at">        </span><span class="fu">learning_rate </span><span class="kw">:</span><span class="at"> </span><span class="fl">1e-3</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb25-1"><a href="trainen-van-het-nn.html#cb25-1"></a><span class="at">    </span><span class="fu">reward_signals</span><span class="kw">:</span></span>
+<span id="cb25-2"><a href="trainen-van-het-nn.html#cb25-2"></a><span class="at">      </span><span class="fu">extrinsic</span><span class="kw">:</span></span>
+<span id="cb25-3"><a href="trainen-van-het-nn.html#cb25-3"></a><span class="at">        </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.0</span></span>
+<span id="cb25-4"><a href="trainen-van-het-nn.html#cb25-4"></a><span class="at">        </span><span class="fu">gamma</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.99</span></span>
+<span id="cb25-5"><a href="trainen-van-het-nn.html#cb25-5"></a><span class="at">      </span><span class="fu">curiosity</span><span class="kw">:</span></span>
+<span id="cb25-6"><a href="trainen-van-het-nn.html#cb25-6"></a><span class="at">        </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.02</span></span>
+<span id="cb25-7"><a href="trainen-van-het-nn.html#cb25-7"></a><span class="at">        </span><span class="fu">gamma</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.99</span></span>
+<span id="cb25-8"><a href="trainen-van-het-nn.html#cb25-8"></a><span class="at">        </span><span class="fu">encoding_size</span><span class="kw">:</span><span class="at"> </span><span class="dv">256</span></span>
+<span id="cb25-9"><a href="trainen-van-het-nn.html#cb25-9"></a><span class="at">        </span><span class="fu">learning_rate </span><span class="kw">:</span><span class="at"> </span><span class="fl">1e-3</span></span></code></pre></div>
 <ul>
 <li><code>curiosity</code> is zo een intrinsieke beloning die gebruikt kan worden indien de beloningen schaars zijn en indien de kans dus klein is om beloond te worden. Door deze waarde te verhogen, verhoog je ook de kans dat de agent ‘per ongeluk’ de juiste actie uitvoert.</li>
 <li><code>strength</code> geeft een gewicht aan het specifiek type belonging</li>
@@ -423,6 +423,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
