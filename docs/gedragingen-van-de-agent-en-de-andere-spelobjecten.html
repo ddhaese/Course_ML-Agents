@@ -228,10 +228,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">4.1.1</span> Overzicht methoden op Environment</h3>
 <p>Maak een script met deze naam en koppel het aan het gelijknamig spelobject. De <code>Environment</code> klasse zal De volgende methoden bevatten:</p>
 <ul>
-<li><code>randomPosition</code>: het genereren van een willekeurige positie in het XZ vlak.</li>
-<li><code>clearEnvironment</code>: het opkuisen van eventuele spelobjecten van een vorige episode</li>
-<li><code>spawnStoneHenge</code>: het genereren van bestemmingen, netjes in een cirkel zoals bij Stonehenge (ongeveer toch)</li>
-<li><code>spawnMenhirs</code>: het genereren van de menhirs</li>
+<li><code>RandomPosition</code>: het genereren van een willekeurige positie in het XZ vlak.</li>
+<li><code>ClearEnvironment</code>: het opkuisen van eventuele spelobjecten van een vorige episode</li>
+<li><code>SpawnStoneHenge</code>: het genereren van bestemmingen, netjes in een cirkel zoals bij Stonehenge (ongeveer toch)</li>
+<li><code>SpawnMenhirs</code>: het genereren van de menhirs</li>
 </ul>
 </div>
 <div id="object-variabelen-op-environment" class="section level3">
@@ -266,7 +266,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="opkuisen-speelveld" class="section level3">
 <h3><span class="header-section-number">4.1.4</span> Opkuisen speelveld</h3>
 <p>Bij het begin van elke episode zal het veld opnieuw in zijn beginsituatie moeten worden alvorens nieuwe menhirs en bestemmingen te genereren:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode c#"><code class="sourceCode cs"><span id="cb5-1"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb5-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">clearEnvironment</span>()</span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c#"><code class="sourceCode cs"><span id="cb5-1"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb5-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">ClearEnvironment</span>()</span>
 <span id="cb5-2"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb5-2"></a>{</span>
 <span id="cb5-3"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb5-3"></a>  <span class="kw">foreach</span> (Transform menhir <span class="kw">in</span> menhirs.<span class="fu">transform</span>)</span>
 <span id="cb5-4"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb5-4"></a>  {</span>
@@ -290,7 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="willekeurige-positie" class="section level3">
 <h3><span class="header-section-number">4.1.6</span> Willekeurige positie</h3>
 <p>Het is belangrijk om het trainingsfase zo representatief mogelijk te maken voor de latere situaties waarmee het NN geconfronteerd zal worden. Hier is het belangrijk dat Obelix de menhirs op hun bestemming weet te brengen, onafhankelijk van hun positie en van de richting waarin ze zich voortbewegen. De code voor het bepalen van een willekeurige positie ziet er als volgt uit:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode c#"><code class="sourceCode cs"><span id="cb7-1"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb7-1"></a><span class="kw">public</span> Vector3 <span class="fu">randomPosition</span>(<span class="dt">float</span> up)</span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c#"><code class="sourceCode cs"><span id="cb7-1"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb7-1"></a><span class="kw">public</span> Vector3 <span class="fu">RandomPosition</span>(<span class="dt">float</span> up)</span>
 <span id="cb7-2"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb7-2"></a>{</span>
 <span id="cb7-3"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb7-3"></a>  <span class="dt">float</span> x = Random.<span class="fu">Range</span>(-<span class="fl">9.75f</span>, <span class="fl">9.75f</span>);</span>
 <span id="cb7-4"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb7-4"></a>  <span class="dt">float</span> z = Random.<span class="fu">Range</span>(-<span class="fl">9.75f</span>, <span class="fl">9.75f</span>);</span>
@@ -310,7 +310,7 @@ Figuur 4.1: Opfrissing basis driehoeksmeetkunde.
 </div>
 
 <p>Er wordt bovendien ook voor gezorgd dat de bestemmingen netjes gegroepeerd blijven binnen de <code>Destinations</code> container. Merk op dat de <code>Mathf</code> functies met radialen werken terwijl <code>Quaternion.Euler</code> graden ([0, 360]) aanvaardt.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode c#"><code class="sourceCode cs"><span id="cb8-1"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb8-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">spawnStoneHenge</span>()</span>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c#"><code class="sourceCode cs"><span id="cb8-1"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb8-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">SpawnStoneHenge</span>()</span>
 <span id="cb8-2"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb8-2"></a>{</span>
 <span id="cb8-3"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb8-3"></a>  <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; menhirCount; i++)</span>
 <span id="cb8-4"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb8-4"></a>  {</span>
@@ -330,14 +330,14 @@ Figuur 4.1: Opfrissing basis driehoeksmeetkunde.
 <div id="dynamisch-genereren-van-menhirs" class="section level3">
 <h3><span class="header-section-number">4.1.8</span> Dynamisch genereren van menhirs</h3>
 <p>Tenslotte rest ons nog de menhirs willekeurig over het veld te verdelen. De bewegingen van de menhirs worden later door de <code>Menhir</code>-klasse zelf verzorgd.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode c#"><code class="sourceCode cs"><span id="cb9-1"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb9-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">spawnMenhirs</span>()</span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c#"><code class="sourceCode cs"><span id="cb9-1"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb9-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">SpawnMenhirs</span>()</span>
 <span id="cb9-2"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb9-2"></a>{</span>
 <span id="cb9-3"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb9-3"></a>  <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; menhirCount; i++)</span>
 <span id="cb9-4"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb9-4"></a>  {</span>
 <span id="cb9-5"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb9-5"></a>    GameObject newMenhir = <span class="fu">Instantiate</span>(menhirPrefab.<span class="fu">gameObject</span>);</span>
 <span id="cb9-6"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb9-6"></a></span>
 <span id="cb9-7"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb9-7"></a>    newMenhir.<span class="fu">transform</span>.<span class="fu">SetParent</span>(menhirs.<span class="fu">transform</span>);</span>
-<span id="cb9-8"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb9-8"></a>    newMenhir.<span class="fu">transform</span>.<span class="fu">localPosition</span> = <span class="fu">randomPosition</span>(1f);</span>
+<span id="cb9-8"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb9-8"></a>    newMenhir.<span class="fu">transform</span>.<span class="fu">localPosition</span> = <span class="fu">RandomPosition</span>(1f);</span>
 <span id="cb9-9"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb9-9"></a>    newMenhir.<span class="fu">transform</span>.<span class="fu">localRotation</span> = Quaternion.<span class="fu">Euler</span>(0f, Random.<span class="fu">Range</span>(0f, 360f), 0f);</span>
 <span id="cb9-10"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb9-10"></a>  }</span>
 <span id="cb9-11"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb9-11"></a>}</span></code></pre></div>
@@ -412,9 +412,9 @@ Figuur 4.1: Opfrissing basis driehoeksmeetkunde.
 <span id="cb14-6"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb14-6"></a>  body.<span class="fu">angularVelocity</span> = Vector3.<span class="fu">zero</span>;</span>
 <span id="cb14-7"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb14-7"></a>  body.<span class="fu">velocity</span> = Vector3.<span class="fu">zero</span>;</span>
 <span id="cb14-8"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb14-8"></a></span>
-<span id="cb14-9"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb14-9"></a>  environment.<span class="fu">clearEnvironment</span>();</span>
-<span id="cb14-10"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb14-10"></a>  environment.<span class="fu">spawnMenhirs</span>();</span>
-<span id="cb14-11"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb14-11"></a>  environment.<span class="fu">spawnStoneHenge</span>();</span>
+<span id="cb14-9"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb14-9"></a>  environment.<span class="fu">ClearEnvironment</span>();</span>
+<span id="cb14-10"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb14-10"></a>  environment.<span class="fu">SpawnMenhirs</span>();</span>
+<span id="cb14-11"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb14-11"></a>  environment.<span class="fu">SpawnStoneHenge</span>();</span>
 <span id="cb14-12"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb14-12"></a>  </span>
 <span id="cb14-13"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb14-13"></a>  menhirsDone = <span class="dv">0</span>;</span>
 <span id="cb14-14"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb14-14"></a>  menhirCount = environment.<span class="fu">menhirCount</span>;</span>
@@ -554,18 +554,18 @@ Figuur 4.1: Opfrissing basis driehoeksmeetkunde.
 <span id="cb19-10"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-10"></a></span>
 <span id="cb19-11"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-11"></a>  <span class="kw">private</span> <span class="dt">void</span> <span class="fu">FixedUpdate</span> () {</span>
 <span id="cb19-12"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-12"></a>    <span class="kw">if</span> (speed &gt; 0f) {</span>
-<span id="cb19-13"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-13"></a>      <span class="fu">move</span> ();</span>
+<span id="cb19-13"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-13"></a>      <span class="fu">Move</span> ();</span>
 <span id="cb19-14"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-14"></a>    }</span>
 <span id="cb19-15"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-15"></a>  }</span>
 <span id="cb19-16"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-16"></a></span>
-<span id="cb19-17"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-17"></a>  <span class="kw">private</span> <span class="dt">void</span> <span class="fu">move</span> () {</span>
+<span id="cb19-17"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-17"></a>  <span class="kw">private</span> <span class="dt">void</span> <span class="fu">Move</span> () {</span>
 <span id="cb19-18"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-18"></a>    <span class="kw">if</span> (environment == <span class="kw">null</span>) {</span>
 <span id="cb19-19"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-19"></a>      environment = GetComponentInParent&lt;Environment&gt; ();</span>
 <span id="cb19-20"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-20"></a>    }</span>
 <span id="cb19-21"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-21"></a></span>
 <span id="cb19-22"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-22"></a>    <span class="kw">if</span> (Time.<span class="fu">fixedTime</span> &gt;= nextActionTime) {</span>
 <span id="cb19-23"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-23"></a>      randomizedSpeed = speed * Random.<span class="fu">Range</span> (.<span class="fu">5f</span>, <span class="fl">1.5f</span>);</span>
-<span id="cb19-24"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-24"></a>      targetPosition = environment.<span class="fu">randomPosition</span> (1f);</span>
+<span id="cb19-24"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-24"></a>      targetPosition = environment.<span class="fu">RandomPosition</span> (1f);</span>
 <span id="cb19-25"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-25"></a>      transform.<span class="fu">rotation</span> = Quaternion.<span class="fu">LookRotation</span> (targetPosition - transform.<span class="fu">localPosition</span>, Vector3.<span class="fu">up</span>);</span>
 <span id="cb19-26"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-26"></a>      <span class="dt">float</span> timeToGetThere = Vector3.<span class="fu">Distance</span> (transform.<span class="fu">localPosition</span>, targetPosition) / randomizedSpeed;</span>
 <span id="cb19-27"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb19-27"></a>      nextActionTime = Time.<span class="fu">fixedTime</span> + timeToGetThere;</span>
