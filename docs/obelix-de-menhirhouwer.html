@@ -257,13 +257,14 @@ Figuur 3.2: Het spelverloop hier uitgebeeld voor een enkele vrije, stilstaande m
 <span id="def:acties" class="definition"><strong>Stelling 3.2  (Acties)  </strong></span>Acties bepalen de bewegingsvrijheid van een agent of, algemener gesteld, de impact die een agent heeft op zijn omgeving.
 </div>
 
-<p>Zolang de agent niet veranderd in geen enkel van zijn eigenschappen (positie, snelheid, kleur, tags,…) dan kan het leeralgoritme daar niets mee, want wat het ook voorstelt als te ondernemen actie, er gebeurt toch niets. Voor Obelix is het al duidelijk geworden dat hij moet kunnen rondkijken om ervoor te zorgen dat er een menhir of bestemming in het gezichtsveld treedt. Verder moet hij kunnen ‘rondlopen’ zodat hij een menhir of bestemming kan benaderen. Als we er van uitgaan dat het opnemen van de menhir en daarna het lossen van de menhir op een bestemming volautomatisch gebeurt (i.e. hij moet er gewoon maar mee botsen) dan zijn er geen verdere acties die Obelix moeten kunnen ondernemen. De details van het roteren en het rondlopen bespreken we later.</p>
+<p>Op de ene of andere manier moet het algoritme leren om de agent a.h.w. te besturen. Met andere woorden, het algoritme moet een actie voorstellen. Het is aan de ontwikkelaar om te bepalen wat de actieruimte (de set van mogelijke acties) precies inhoudt. ZO kunnen de eigenschappen van de agent zoals positie, snelheid, kleur, tags, enz… gewijzigd worden.</p>
+<p>Voor Obelix is het al duidelijk geworden dat hij moet kunnen rondkijken om ervoor te zorgen dat er een menhir of bestemming in het gezichtsveld treedt. Verder moet hij kunnen ‘rondlopen’ zodat hij een menhir of bestemming kan benaderen. Als we er van uitgaan dat het opnemen van de menhir en daarna het lossen van de menhir op een bestemming volautomatisch gebeurt (i.e. hij moet er gewoon maar mee botsen) dan zijn er geen verdere acties die Obelix moeten kunnen ondernemen. De details van het roteren en het rondlopen bespreken we later.</p>
 
 <div class="definition">
 <span id="def:beloning" class="definition"><strong>Stelling 3.3  (Beloning)  </strong></span>Het beloningsmechanisme (eng: <em>rewards</em>, <em>incentives</em>) vertelt het leeralgoritme of de voorgestelde actie de agent dichter bij het einddoel van de leeroefening brengt of niet.
 </div>
 
-<p>Figuur <a href="obelix-de-menhirhouwer.html#fig:obelix-beloning">3.3</a> geeft een overzicht van het beloningssysteem voor de Obelix simulatie. Het einddoel is het plaatsen van de menhir op een bestemming en dus daar krijgt het leeralgoritme de grootste score voor. Voor het naderen van een menhir of een bestemming krijgt de agent enkel een (matige) beloning indien het zich in de juiste staat bevindt. Bijvoorbeeld, als Obelix al een steen op zijn rug draagt, krijgt hij geen extra punten om een andere menhir te benaderen, want twee menhirs op de rug is misschien toch wat veel van het goede (in deze versie, natuurlijk kan je dit aanpassen).</p>
+<p>Figuur <a href="obelix-de-menhirhouwer.html#fig:obelix-beloning">3.3</a> geeft een overzicht van het beloningssysteem voor de Obelix simulatie. Het einddoel is de plaatsing van de menhirs op de bestemmingen, dus daarvoor reiken we de grootste beloning uit. Voor het naderen van een menhir krijgt Obelix enkel een (matige) beloning indien het zich in de juiste toestand bevindt. Bijvoorbeeld, als Obelix al een steen op zijn rug draagt, wordt hij afgestraft om een andere menhir te benaderen, want twee menhirs op de rug is misschien toch wat veel van het goede (in deze versie, natuurlijk kan je dit aanpassen).</p>
 <div class="figure"><span id="fig:obelix-beloning"></span>
 <img src="img/obelix-beloning.svg" alt="Het beloningssysteem voor de Obelix-simulatie."  />
 <p class="caption">
@@ -274,7 +275,7 @@ Figuur 3.3: Het beloningssysteem voor de Obelix-simulatie.
 </div>
 <div id="het-speelveld" class="section level2">
 <h2><span class="header-section-number">3.4</span> Het speelveld</h2>
-<p>Laten we beginnen met alle componenten te bouwen om de simulatie te bouwen. Merk op dat het verstandig is om eerst de ML logica in te bouwen alvorens je de spelobjecten tot in het detail uitwerkt. Dat is ook wat we hier gaan doen.</p>
+<p>Laten we beginnen met alle componenten te bouwen om de simulatie mogelijk te maken. Merk op dat het verstandig is om eerst de ML logica te ontwikkelen alvorens je de spelobjecten tot in het detail uitwerkt. Dat is ook wat we hier gaan doen.</p>
 <div class="figure"><span id="fig:speelveld"></span>
 <img src="img/Speelveld.png" alt="Het speelveld met 5 spelobjecten." width="695" />
 <p class="caption">
@@ -289,9 +290,9 @@ Figuur 3.4: Het speelveld met 5 spelobjecten.
 <h3><span class="header-section-number">3.5.1</span> Speelveld object</h3>
 <p>Het speelveld krijgt de naam <code>Henge</code> en is een eenvoudig vlak met schaal X = Y = Z = 2 en posities en rotatie op X = Y = Z = 0 en met een <em>Mesh Collider</em>. Dit en alle andere objecten zitten vervat in een container object <code>Environment</code> zodat het geheel later eenvoudig gedupliceerd kan worden.</p>
 <div class="figure"><span id="fig:objecten"></span>
-<img src="img/objecten.png" alt="De volledige hiërarchie binnen de spelobjecten met hun namen zoals ze in deze handleiding gebruikt zullen worden. Merk op dat de Menhir en Destination objecten als prefab zullen worden gedefinieerd zodat men hier meerdere instanties van kan genereren (eng: to spawn) tijdens de initialisatie van de simulatie." width="129" />
+<img src="img/objecten.png" alt="De volledige hiërarchie binnen de spelobjecten met hun namen zoals ze in deze handleiding gebruikt zullen worden. Merk op dat de Menhir en Destination objecten als prefab zullen worden gedefinieerd zodat men hier meerdere instanties van kan genereren (eng: to spawn) tijdens de initialisatie" width="129" />
 <p class="caption">
-Figuur 3.5: De volledige hiërarchie binnen de spelobjecten met hun namen zoals ze in deze handleiding gebruikt zullen worden. Merk op dat de <code>Menhir</code> en <code>Destination</code> objecten als prefab zullen worden gedefinieerd zodat men hier meerdere instanties van kan genereren (eng: <em>to spawn</em>) tijdens de initialisatie van de simulatie.
+Figuur 3.5: De volledige hiërarchie binnen de spelobjecten met hun namen zoals ze in deze handleiding gebruikt zullen worden. Merk op dat de <code>Menhir</code> en <code>Destination</code> objecten als prefab zullen worden gedefinieerd zodat men hier meerdere instanties van kan genereren (eng: <em>to spawn</em>) tijdens de initialisatie
 </p>
 </div>
 
@@ -306,7 +307,7 @@ Figuur 3.6: Obelix spelobject. Zie tekst voor de eigenschappen van dit object.
 </div>
 
 <p>Dit is het enige composiet spelobject met het cilindrisch lichaam <code>Obelix</code>, een rechteroog (<code>RightEye</code>), een linkeroog (<code>LeftEye</code>) en een neus (<code>Nose</code>). Het lichaam zelf is een capsule met schaal 1 in alle richtingen. Het bevat een passende <em>Capsule collider</em> en een <em>Rigid body</em> component met de rotatie-vrijheid beperkt tot enkel de y-as (dus <em>freeze rotation</em> X en Z aangevinkt). De ogen en de neus worden als dochter-componenten van het lichaam aangemaakt en bestaan uit bollen, respectievelijk een capsule, telkens met hun gepaste en aansluitende collider. Zorg dat het composiet object voldoende boven de grond is (y = 1.5) zodat hij netjes op het speelveld valt.</p>
-<p>De acties die Obelix gaat doen zijn gebaseerd op observaties. Zorg er dan ook voor dat beide ogen van Obelix kunnen ‘zien’ door aan beide ogen een <em>Ray Perception Sensor 3D</em> toe te voegen met de volgende eigenschappen (hier voor het links oog weergegeven).</p>
+<p>De acties die Obelix gaat doen zijn gebaseerd op observaties. Laten we ervoor zorgen dat beide ogen van Obelix kunnen ‘zien’ door aan beide ogen een <em>Ray Perception Sensor 3D</em> component toe te voegen met de volgende eigenschappen (hier voor het links oog weergegeven).</p>
 <table>
 <thead>
 <tr class="header">
@@ -322,7 +323,7 @@ Figuur 3.6: Obelix spelobject. Zie tekst voor de eigenschappen van dit object.
 <td>Unieke naam is belangrijk</td>
 </tr>
 <tr class="even">
-<td><code>Detecable Tag</code>s</td>
+<td><code>Detecable Tags</code></td>
 <td><code>2</code>: <code>Menhir</code> en <code>Destination</code></td>
 <td>De objecten die Obelix kan zien</td>
 </tr>
@@ -368,7 +369,7 @@ Figuur 3.7: De <em>Ray Perception Sensor 3D</em> component in actie.
 </div>
 
 <blockquote>
-<p>Er zijn ook andere componenten die van de betrokken <code>ISensor</code> interface overerven, namelijk <code>CameraSensorComponent</code> waarmee camerabeelden als pixel-matrices aan het NN worden doorgegeven of <code>RenderTextureSensorComponent</code> die de inhoude van zogenaamde <a href="https://docs.unity3d.com/Manual/class-RenderTexture.html"><em>Render Textures</em></a> als invoer gebruikt voor het NN.</p>
+<p>Er zijn ook andere componenten die van de betrokken <code>ISensor</code> interface overerven, namelijk <code>CameraSensorComponent</code> waarmee camerabeelden als pixel-matrices aan het NN worden doorgegeven of <code>RenderTextureSensorComponent</code> die de inhoud van zogenaamde <a href="https://docs.unity3d.com/Manual/class-RenderTexture.html"><em>Render Textures</em></a> als invoer gebruikt voor het NN.</p>
 </blockquote>
 <p>Voeg verder twee componenten toe aan Obelix: <em>Behavior Parameters</em> (het gedrag van de agent) en <em>Decision Requester</em>. (een automatische trigger om de agent te dwingen iets te doen). We zullen deze componenten waar nodig gaandeweg configureren.</p>
 <p><img src="img/agent-componenten.png" /></p>

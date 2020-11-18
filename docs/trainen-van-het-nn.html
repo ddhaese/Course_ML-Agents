@@ -227,7 +227,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb20"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb20-1"><a href="trainen-van-het-nn.html#cb20-1"></a><span class="fu">behaviors</span><span class="kw">:</span></span>
 <span id="cb20-2"><a href="trainen-van-het-nn.html#cb20-2"></a><span class="at">  </span><span class="fu">Obelix</span><span class="kw">:</span></span></code></pre></div>
 <p>Opgelet: De naam <code>Obelix</code> moet overeenkomen met de <em>Behavior Name</em>.</p>
-<p>Je kan in het configuratiebestand meerdere gedragingen toevoegen, waarbij een gedrag overeenkomt met type agent en met een NN.</p>
+<p>Je kan in het configuratiebestand meerdere <em>gedragingen</em> toevoegen, waarbij een gedrag overeenkomt met een type agent en met een NN.</p>
 <div id="trainer-type" class="section level3">
 <h3><span class="header-section-number">6.1.1</span> Trainer-type</h3>
 <p>De eerste configuratie-parameter is</p>
@@ -235,7 +235,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Hiermee bepaal je het type conditioneringsalgoritme en meteen ook een groot aantal andere confirguratieparameters. De mogelijkheden zijn:</p>
 <ul>
 <li><code>ppo</code>: <em>Proximal Policy Optimization</em> Dit algoritme zal trachten niet te ver af te wijken van de vorige set van voorgestelde acties (eng: <em>policy</em>) door een vorm van regularisatie toe te passen</li>
-<li><code>sac</code>: <em>Soft-Actor Critic</em> Is een zogenaamde <em>off-policy</em> algoritme dat uit zijn geheugen ervaringen uit het verleden kan ophalen. Het heeft minder cycli nodig om te leren en is beter geschikt voor meer complexe omgevingen.</li>
+<li><code>sac</code>: <em>Soft-Actor Critic</em> Dit is een zogenaamde <em>off-policy</em> algoritme dat uit zijn geheugen ervaringen uit het verleden kan ophalen. Het heeft minder cycli nodig om te leren en is beter geschikt voor meer complexe omgevingen.</li>
 </ul>
 </div>
 <div id="hyperparameters" class="section level3">
@@ -257,10 +257,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb22-14"><a href="trainen-van-het-nn.html#cb22-14"></a><span class="at">      </span><span class="fu">lambd</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.95</span></span>
 <span id="cb22-15"><a href="trainen-van-het-nn.html#cb22-15"></a><span class="at">      </span><span class="fu">num_epoch</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span></code></pre></div>
 <ul>
-<li><code>max_steps</code>: totaal maximum aantal stappen de simulatie mag doorlopen gedurende de ganse trainingsfase</li>
+<li><code>max_steps</code>: totaal maximum aantal stappen die de simulatie mag doorlopen gedurende de ganse trainingsfase</li>
 <li><code>time_horizon</code>: aantal ervaringen samen te nemen alvorens deze naar de ervaringsbuffer te sturen. Een set van observaties samen met de status waarin de agent zich bevindt, dus een input-rij voor het NN, noemt men de ervaring (eng: <em>experience</em>).</li>
 <li><code>summary_freq</code>: aantal ervaringen die worden samengenomen alvorens samenvattende statistieken ervan te berekenen (≈ resolutie in Tensorboard)</li>
-<li><code>keep_checkpoints</code>: Een checkpoint is een soort backup van het NN model</li>
+<li><code>keep_checkpoints</code>: een checkpoint is een soort backup van het NN model</li>
 <li><code>checkpoint_interval</code>: de frequentie waarmee de backups genomen moeten worden</li>
 <li><code>batch_size</code> bepaalt de grootte van de <em>minibatch</em>. <code>batch_size</code> weerspiegelt het aantal ervaringen die worden samengenomen per optimalisatie-stap (gradiënt-afdaling, eng: <em>gradient descent</em>)</li>
 <li><code>buffer_size</code> geeft het aantal ervaringen weer die worden samengenomen alvorens het leeralgoritme, in batches <code>batch_size</code> groot, de ervaringen verwerkt. Moet dus een meervoud van <code>batch_size</code> zijn</li>
@@ -281,7 +281,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb23-4"><a href="trainen-van-het-nn.html#cb23-4"></a><span class="at">      </span><span class="fu">normalize</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code></pre></div>
 <ul>
 <li><code>num_layers</code>: Het aantal verborgen lagen van het NN, dus exclusief de invoer en uitvoer laag</li>
-<li><code>hidden_units</code>: Het aantal neuronen of nodes per verborgen laag in het NN. Samen met <code>num_layers</code> bepaald dit de grootte van het artificieel brein.</li>
+<li><code>hidden_units</code>: Het aantal neuronen of nodes per verborgen laag in het NN. Samen met <code>num_layers</code> bepaalt dit de grootte van het artificieel brein.</li>
 <li><code>normalize</code>: Moet eigenlijk <a href="https://en.wikipedia.org/wiki/Standard_score"><em>standardize</em></a> heten en kan belangrijk zijn wanneer men acties d.m.v. <a href="https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/random-variables-discrete/v/discrete-and-continuous-random-variables">continue variabelen</a> codeert.</li>
 </ul>
 <p>Als je aan je eigen agent gaat werken, moet je ook nadenken of er geheugen nodig is. Zo ja, dan kan je dit op deze manier coderen, binnen het onderdeel <code>network_settings</code> (zie <a href="trainen-van-het-nn.html#extra-informatie-rond-configuratie">hieronder</a> voor links naar online documentatie hierrond):</p>
@@ -354,7 +354,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Je kan alternatief ook werken met <a href="https://github.com/Unity-Technologies/ml-agents/blob/release_6_docs/docs/Learning-Environment-Executable.md">Unity Executables</a>.</p>
 </blockquote>
 <blockquote>
-<p>Je kan een stopgezette trainging hervatten met de <code>--resume</code> parameter van <code>mlagents-learn</code></p>
+<p>Je kan een stopgezette training hervatten met de <code>--resume</code> parameter van <code>mlagents-learn</code></p>
 </blockquote>
 <blockquote>
 <p>Voor hulp: <code>mlagents-learn --help</code></p>

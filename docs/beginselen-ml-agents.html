@@ -239,7 +239,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Opgelet</strong>: De versie van de geïnstalleerde software speelt hier een belangrijke rol. ML-Agents is nog volop in ontwikkeling en de functionaliteiten kunnen tussen twee versies erg verschillen.</p>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li><p><strong>Installeer ML Agents</strong>: Unity heeft wat problemen gehad met het versioneren van hun product, dus moet je goed opletten <span class="citation">Technologies (<a href="#ref-2020-ml-agents-versioning" role="doc-biblioref">2020</a>)</span>). Via de Package Manager van Unity installeer je ML Agents versie <code>1.0.5</code>. Dit zou moeten overeenkomen met de <a href="https://github.com/Unity-Technologies/ml-agents">GitHub Release 6</a> repository.</p></li>
+<li><p><strong>Installeer ML Agents</strong>: Unity heeft wat problemen gehad met het versioneren van hun product, dus moet je goed opletten (zie <span class="citation">Technologies (<a href="#ref-2020-ml-agents-versioning" role="doc-biblioref">2020</a>)</span>). Via de Package Manager van Unity installeer je ML Agents versie <code>1.0.5</code>. Dit zou moeten overeenkomen met de <a href="https://github.com/Unity-Technologies/ml-agents">GitHub Release 6</a> repository.</p></li>
 <li><p><strong>Installeer Python</strong>:</p>
 <ol style="list-style-type: lower-alpha">
 <li>Wil je met een omgeving-manager werken zodat je in een afgezonderde omgeving kunt werken met zijn eigen specifieke set aan Python modules, dan kan je <a href="https://www.anaconda.com/">Anaconda</a> of de vereenvoudigde versie <a href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> downloaden in een folder waarvan het pad <em>geen spaties</em> bevat. Je test deze installatie met het commando <code>conda info</code>. Je kan een ontwikkel omgeving (eng: <em>development environment</em>) maken met het commando <code>conda create -n ml-agents</code> en deze omgeving activeren met <code>conda activate ml-agents</code> en deactiveren met <code>conda deactivate</code>. Met de <em>ml-agents</em> omgeving actief kan je met de opdracht <code>python --version</code> controleren dat de versie van Python voldoende recent is (<code>3.8.1</code> of hoger) en met <code>pip install mlagents</code> installeer je de <code>mlagents</code> Python module</li>
@@ -252,7 +252,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="ml-agents-toolkit" class="section level2">
 <h2><span class="header-section-number">2.3</span> ML-Agents Toolkit</h2>
-<p>De <em>Unity Machine Learning Agents Toolkit</em> (of kortweg <em>ML-Agents</em>) stelt de spel- of simulatie-ontwikkelaar in staat om één of meerdere karakters (eng: <em>non-player characters</em> of <em>NPCs</em>) of <em>agenten</em> (eng: <em>agents</em>) intelligent te maken door deze een virtueel <em>brein</em> mee te geven. Je bepaalt zelf wat je de agenten aanleert en dus wat er in het brein terechtkomt. Als het brein voldoende complex is en als er voldoende leertijd voorzien wordt zijn er bijna geen limieten aan wat je een agent kunt aanleren.</p>
+<p>De <em>Unity Machine Learning Agents Toolkit</em> (of kortweg <em>ML-Agents</em>) stelt de spel- of simulatie-ontwikkelaar in staat om één of meerdere karakters (eng: <em>non-player characters</em> of <em>NPCs</em>) of <em>agenten</em> (eng: <em>agents</em>) intelligent te maken door deze een virtueel <em>brein</em> mee te geven. Je bepaalt zelf wat je de agenten aanleert en dus wat er in het brein terechtkomt. Als het brein voldoende complex is en als er voldoende leertijd voorzien wordt, zijn er bijna geen limieten aan wat je een agent kunt aanleren.</p>
 <p>Hier is een voorbeeld:</p>
 <iframe width="600" height="318" src="https://www.youtube.com/embed/fiQsmdwEGT8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
@@ -289,7 +289,7 @@ Figuur 2.2: Vereenvoudigd proces-diagram voor ML. Cirkels stellen acties voor, r
 <span id="def:def-ml" class="definition"><strong>Stelling 2.1  </strong></span>Machine learning (ML) is het vermogen van een algoritme om te <b>leren uit data</b>.
 </div>
 
-<p>Er zijn verscheidene vormen, maar het komt er meestal op neer dat op basis van data een model wordt gemaakt. De vorm van ML waar we hier mee in contact komen is conditionering (eng: <em>reinforcement learning</em>) Zulk een conditionering-model kan men beschouwen als een functie die op basis van een bepaalde situatie de meest aangewezen actie probeert te voorspellen op basis van een beloning-systeem. Bijvoorbeeld, het model moet aanleren dat bij de situatie:</p>
+<p>Er zijn verscheidene vormen, maar het komt er meestal op neer dat op basis van data een model wordt gemaakt. De vorm van ML waar we hier mee in contact komen is conditionering (eng: <em>reinforcement learning</em>). Zulk een conditionering-model kan men beschouwen als een functie die op basis van een bepaalde situatie de meest aangewezen actie probeert te voorspellen. Bijvoorbeeld, het model moet aanleren dat bij de situatie:</p>
 <p><q>…er is een wagen rechts van me die met hoge snelheid nadert…</q></p>
 <p>een gepaste actie zou kunnen zijn:</p>
 <p><q>Zet snel twee stappen naar voren</q></p>
@@ -305,7 +305,7 @@ Figuur 2.3: Vergelijk met Figuur <a href="beginselen-ml-agents.html#fig:ml-proce
 </p>
 </div>
 
-<p>De standaard levenscyclus van een unity-omgeving (eng: <em>environment</em>) wordt tijdens het trainen van de agenten uitgebreid het doorlopen van de zogenaamde epochs (ook wel <em>steps</em>) van het NN. De twee systemen, TensorFlow en Unity, hebben wel een zekere onafhankelijkheid en communiceren aan de hand van buffers. Zo bestaat er een <em>experience buffer</em> die de observaties vanuit Unity verzameld en van waaruit het NN ten gepaste tijde de invoerlaag mee voed.</p>
+<p>De standaard levenscyclus van een unity-omgeving (eng: <em>environment</em>) wordt tijdens het trainen van de agenten uitgebreid het doorlopen van de zogenaamde epochs (ook wel <em>steps</em>) van het NN. De twee systemen, TensorFlow en Unity, hebben wel een zekere onafhankelijkheid en communiceren aan de hand van buffers. Zo bestaat er een <em>experience buffer</em> die de observaties vanuit Unity verzamelt en van waaruit het NN ten gepaste tijde de invoerlaag mee voedt.</p>
 </div>
 <div id="interactie-tussen-het-nn-en-de-unity-omgeving" class="section level2">
 <h2><span class="header-section-number">2.5</span> Interactie tussen het NN en de Unity omgeving</h2>

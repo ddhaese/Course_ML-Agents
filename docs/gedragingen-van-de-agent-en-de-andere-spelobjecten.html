@@ -223,10 +223,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Hoofdstuk 4</span> Gedragingen van de agent en de andere spelobjecten</h1>
 <div id="environment.cs" class="section level2">
 <h2><span class="header-section-number">4.1</span> Environment.cs</h2>
-<p>Wil je een agent een complexe handeling aanleren, i.e. een handeling dat je niet eenvoudig kan programmeren, dan zal je typisch de agent willen blootstellen aan een onvoorziene situatie. Wie onvoorzien zegt, zegt ook willekeurig en in <code>Environment.cs</code> bestaat een belangrijk deel van de code er dan ook in om de menhirs willekeurig op het speelveld te plaatsen. Kwestie om Obelix het niet te gemakkelijk te maken.</p>
+<p>Wil je een agent een complexe handeling aanleren, i.e. een handeling die je niet eenvoudig kan programmeren, dan zal je typisch de agent willen blootstellen aan een onvoorziene situatie. Wie onvoorzien zegt, zegt ook willekeurig en in <code>Environment.cs</code> bestaat een belangrijk deel van de code er dan ook in om de menhirs willekeurig op het speelveld te plaatsen. Kwestie om het voor Obelix niet te gemakkelijk te maken.</p>
 <div id="overzicht-methoden-op-environment" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Overzicht methoden op Environment</h3>
-<p>Maak een script met deze naam en koppel het aan het gelijknamig spelobject. De <code>Environment</code> klasse zal De volgende methoden bevatten:</p>
+<p>Maak een script met deze naam en koppel het aan het gelijknamig spelobject. De <code>Environment</code> klasse zal de volgende methoden bevatten:</p>
 <ul>
 <li><code>RandomPosition</code>: het genereren van een willekeurige positie in het XZ vlak.</li>
 <li><code>ClearEnvironment</code>: het opkuisen van eventuele spelobjecten van een vorige episode</li>
@@ -368,7 +368,7 @@ Figuur 4.1: Opfrissing basis driehoeksmeetkunde.
 <li><code>CollectObservations</code>: Het verzamelen van observaties uit de omgeving</li>
 <li><code>Heuristic</code>: Indien er geen NN gekoppeld is, dan zorgt deze methode voor een alternatieve manier voor het bepalen van de acties die de agent moet nemen, bijvoorbeeld via toetsaanslagen</li>
 <li><code>OnActionReceived</code>: De wijzigingen die het spelobject van de agent moet ondergaan wanneer de speler (via <code>Heuristic</code>) óf het NN voorstelt om een bepaalde actie uit te voeren. Bijvoorbeeld “vooruit” → <code>transform.Translate(...)</code></li>
-<li><code>OnCollisionEnter</code>: De acties die uitgevoerd moeten en beloningen die uitgereikt dienen te worden wanneer de agent ergens tegen aanbotst.</li>
+<li><code>OnCollisionEnter</code>: De acties die uitgevoerd moeten worden en de beloningen die uitgereikt dienen te worden wanneer de agent ergens tegen aanbotst.</li>
 </ul>
 <p>Behalve <code>OnCollisionEnter</code> erven al deze methoden over van de <code>Agent</code> klasse.</p>
 <p>Merk op dat het aanroepen van de <code>RequestDecision</code> methode in de nieuwere versies van Unity wordt overgenomen door de Component <em>Decision Requester</em>. Denk er dus aan om deze component aan Obelix toe te voegen via de Unity GUI.</p>
@@ -462,11 +462,11 @@ Figuur 4.1: Opfrissing basis driehoeksmeetkunde.
 <span id="cb16-22"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb16-22"></a>}</span></code></pre></div>
 <p>In dit geval kan je Obelix manueel besturen met de pijltjes toetsen. Het gedrag van de agent (via de pijltjes toetsen of via NN) kan je via de <em>Behavior Type</em> parameter van de <em>Behavior Parameters</em> component van de agent in de GUI van Unity aanpassen:</p>
 <p><img src="img/gedrag.png" /></p>
-<p>Gebruik <em>Heurstic</em> om te testen, <em>Inference</em> om Obelix te besturen d.m.v. een eerder getraind brein of <em>Default</em> waarbij de Academy zelf gaat onderzoeken of er een NN aan het wachten is voor input en zo ja de trainings-modus in gaat.</p>
+<p>Zet <code>Behavior Type</code> op <em>Heurstic Only</em> om te testen en op <em>Inference Only</em> om Obelix te besturen d.m.v. een eerder getraind brein. Gebruik <em>Default</em> om de Academy zelf te laten uitzoeken of er een NN aan het wachten op invoer. Zo ja, gaat de Academy de trainings-modus in. Anders zal de Academy in Inference modus gaan (indien er een brein gekoppeld is) of in Heuristic modus gaan.</p>
 </div>
 <div id="onactionreceived" class="section level3">
 <h3><span class="header-section-number">4.3.7</span> OnActionReceived</h3>
-<p>Deze methode staat in voor het vertalen van een voorgestelde actie naar bewegingen of andere wijzigingen van het spelobject dat met de agent gekoppeld is. Acties worden als een getallenreeks gecodeerd en als dusdanig doorgegeven vanuit het NN of via de Heuristic-methode. Voor Obelix is ervoor gekozen om discrete acties te ontvangen (t.o.v. continue waarden).</p>
+<p>Deze methode staat in voor het vertalen van een voorgestelde actie naar bewegingen of andere wijzigingen van het spelobject van de agent. Acties worden als een getallenreeks gecodeerd en als dusdanig doorgegeven vanuit het NN of via de Heuristic-methode. Voor Obelix is ervoor gekozen om discrete acties te ontvangen (t.o.v. continue waarden).</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode c#"><code class="sourceCode cs"><span id="cb17-1"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb17-1"></a><span class="kw">public</span> <span class="kw">override</span> <span class="dt">void</span> <span class="fu">OnActionReceived</span>(<span class="dt">float</span>[] vectorAction)</span>
 <span id="cb17-2"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb17-2"></a>{</span>
 <span id="cb17-3"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb17-3"></a>  <span class="kw">if</span> (vectorAction[<span class="dv">0</span>] == <span class="dv">0</span> &amp; vectorAction[<span class="dv">1</span>] == <span class="dv">0</span>)</span>
@@ -487,7 +487,7 @@ Figuur 4.1: Opfrissing basis driehoeksmeetkunde.
 <span id="cb17-18"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb17-18"></a>    transform.<span class="fu">Rotate</span>(<span class="dv">0</span>, rotation, <span class="dv">0</span>);</span>
 <span id="cb17-19"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb17-19"></a>  }</span>
 <span id="cb17-20"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb17-20"></a>}</span></code></pre></div>
-<p>De structuur van de actie-vector is erg eenvoudig. Deze bestaat uit twee natuurlijke getallen. Het eerst bepaalt of er een stap naar voren of naar achteren wordt genomen, het tweede of er naar links of naar rechts wordt gedraaid:</p>
+<p>De structuur van de actie-vector is erg eenvoudig. Deze bestaat uit twee natuurlijke getallen. Het eerste getal bepaalt of er een stap naar voren of naar achteren wordt genomen, het tweede of er naar links of naar rechts wordt gedraaid:</p>
 <ul>
 <li><code>vectorAction[0]</code>:
 <ul>
@@ -509,7 +509,7 @@ Figuur 4.1: Opfrissing basis driehoeksmeetkunde.
 </div>
 <div id="oncollisionenter" class="section level3">
 <h3><span class="header-section-number">4.3.8</span> OnCollisionEnter</h3>
-<p>Botst Obelix op een menhir,en draagt hij nog geen menhir op zijn rug, dan ontvangt hij 0.1 punt, wordt zijn status-veld <code>carriesMenhir</code> aangepast en wordt de menhir in kwestie verwijderd van het speelveld. Botst Obelix op een bestemming, dan krijgt hij 1 punt en wordt de bestemming aangepast zodat zij niet langer als bestemming kan dienen (aanpassen van de <code>tag</code> eigenschap). Er wordt hier een extra afstraffing toegevoegd van -0.1 punt, namelijk wanneer Obelix een menhir raakt wanneer hij reeds een ander menhir op de rug draagt.</p>
+<p>Botst Obelix op een menhir, en draagt hij nog geen menhir op zijn rug, dan ontvangt hij 0.1 punt, wordt zijn status-veld <code>carriesMenhir</code> aangepast en wordt de menhir in kwestie verwijderd van het speelveld. Botst Obelix op een bestemming, dan krijgt hij 1 punt en wordt de bestemming aangepast zodat zij niet langer als bestemming kan dienen (aanpassen van de <code>tag</code> eigenschap). Er wordt hier een extra afstraffing toegevoegd van -0.1 punt, namelijk wanneer Obelix een menhir raakt wanneer hij reeds een ander menhir op de rug draagt.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode c#"><code class="sourceCode cs"><span id="cb18-1"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb18-1"></a><span class="dt">void</span> <span class="fu">OnCollisionEnter</span>(Collision collision)</span>
 <span id="cb18-2"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb18-2"></a>{</span>
 <span id="cb18-3"><a href="gedragingen-van-de-agent-en-de-andere-spelobjecten.html#cb18-3"></a>  <span class="kw">if</span> (collision.<span class="fu">transform</span>.<span class="fu">CompareTag</span>(<span class="st">&quot;Destination&quot;</span>) &amp; carriesMenhir == 1f)</span>
